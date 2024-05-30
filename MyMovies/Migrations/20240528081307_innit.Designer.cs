@@ -11,7 +11,7 @@ using MyMovies.Data;
 
 namespace MyMovies.Migrations
 {
-    [DbContext(typeof(MovieDbContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20240528081307_innit")]
     partial class innit
     {

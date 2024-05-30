@@ -5,9 +5,9 @@ namespace MyMovies
 {
     public class MoviesController : Controller
     {
-        private readonly MovieDbContext _context;
+        private readonly ApplicationDbContext _context;
         //instance of db to access. 
-        public MoviesController(MovieDbContext context)
+        public MoviesController(ApplicationDbContext context)
         {
             _context = context;//constructor for controller to get data from db
         }

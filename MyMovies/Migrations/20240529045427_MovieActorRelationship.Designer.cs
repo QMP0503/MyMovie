@@ -11,7 +11,7 @@ using MyMovies.Data;
 
 namespace MyMovies.Migrations
 {
-    [DbContext(typeof(MovieDbContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20240529045427_MovieActorRelationship")]
     partial class MovieActorRelationship
     {

@@ -12,9 +12,9 @@ namespace MyMovies.Controllers
 {
     public class ActorsController : Controller
     {
-        private readonly MovieDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public ActorsController(MovieDbContext context)
+        public ActorsController(ApplicationDbContext context)
         {
             _context = context;
         }

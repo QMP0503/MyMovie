@@ -10,9 +10,9 @@ public static class SeedData
 {
     public static void Initialize(IServiceProvider serviceProvider)
     {
-        using (var context = new MovieDbContext(
+        using (var context = new ApplicationDbContext(
             serviceProvider.GetRequiredService<
-                DbContextOptions<MovieDbContext>>()))
+                DbContextOptions<ApplicationDbContext>>()))
         {
             // Look for any movies.
             if (context.Movies.Any())
