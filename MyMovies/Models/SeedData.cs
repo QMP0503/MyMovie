@@ -10,9 +10,9 @@ public static class SeedData
 {
     public static void Initialize(IServiceProvider serviceProvider)
     {
-        using (var context = new ApplicationDbContext(
+        using (var context = new MovieDbContext(
             serviceProvider.GetRequiredService<
-                DbContextOptions<ApplicationDbContext>>()))
+                DbContextOptions<MovieDbContext>>()))
         {
             // Look for any movies.
             if (context.Movies.Any())
@@ -25,30 +25,37 @@ public static class SeedData
                     Title = "When Harry Met Sally",
                     ReleaseDate = DateTime.Parse("1989-2-12"),
                     Genre = "Romantic Comedy",
-                    Rating = 7.99M
+                    Rating = 8,
+                    
                 },
                 new Movie
                 {
                     Title = "Ghostbusters ",
                     ReleaseDate = DateTime.Parse("1984-3-13"),
                     Genre = "Comedy",
-                    Rating = 8.99M
+                    Rating = 6
                 },
                 new Movie
                 {
                     Title = "Ghostbusters 2",
                     ReleaseDate = DateTime.Parse("1986-2-23"),
                     Genre = "Comedy",
-                    Rating = 9.99M
+                    Rating = 2
                 },
                 new Movie
                 {
                     Title = "Rio Bravo",
                     ReleaseDate = DateTime.Parse("1959-4-15"),
                     Genre = "Western",
-                    Rating = 3.99M
+                    Rating = 10
                 }
             );
+            if (context.Actors.Any())
+            {
+                return;   // DB has been seeded
+            }
+
+
             context.SaveChanges();
         }
     }
