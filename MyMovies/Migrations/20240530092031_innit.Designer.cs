@@ -12,8 +12,8 @@ using MyMovies.Data;
 namespace MyMovies.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240530044233_userLogin")]
-    partial class userLogin
+    [Migration("20240530092031_innit")]
+    partial class innit
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -247,6 +247,11 @@ namespace MyMovies.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
                         .HasColumnType("varchar(256)");
@@ -254,10 +259,6 @@ namespace MyMovies.Migrations
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256)
                         .HasColumnType("varchar(256)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("longtext");
 
                     b.Property<string>("PasswordHash")
                         .HasColumnType("longtext");
@@ -277,11 +278,6 @@ namespace MyMovies.Migrations
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("varchar(256)");
-
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
 
                     b.HasKey("Id");
 
