@@ -6,9 +6,10 @@
 
 <h1>Actor Index</h1>
 
-<p>
+@if (User.IsInRole("Admin"))
+{
     <a asp-action="Create">Create New</a>
-</p>
+}
 
 <tbody>
 
@@ -52,12 +53,14 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Age)
                     </td>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
 
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                    </td>
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    }
                 </tr>
             }
         </tbody>

@@ -2,6 +2,10 @@
 {
     public class Actor
     {
+        public Actor() 
+        { 
+            Movies = new List<Movie>();
+        }
         [Key]
         public int Id { get; set; }
         [Required]

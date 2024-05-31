@@ -1,4 +1,7 @@
 ﻿@model MyMovies.Controllers.PaginatedList<MyMovies.Models.Movie>
+@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<User> SignInManager;
+@inject UserManager<User> UserManager;
 @{
     ViewData["Title"] = "Index";
 }
@@ -6,7 +9,10 @@
 <h1>Movie Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    @if (User.IsInRole("Admin"))//add role base stuff after finishing CRUD methods
+    {
+        <a asp-action="Create">Create New</a>
+    }
 </p>
 
 <tbody>
@@ -15,7 +21,7 @@
     <div class="form-actions no-color">
         <p>
             Find by name: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
-            <input type="submit" value="Search" class="btn btn-default" /> |
+            <input type="submit" value="Search" class="btn btn-default" /> 
             <a asp-action="Index">Back to Full List</a>
         </p>
     </div>
@@ -57,9 +63,11 @@
                 @Html.DisplayFor(modelItem => item.Rating)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        @if (User.IsInRole("Admin")) //switch to role base when finished with CRUD method functions
+                {
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                }
             </td>
         </tr>
 }

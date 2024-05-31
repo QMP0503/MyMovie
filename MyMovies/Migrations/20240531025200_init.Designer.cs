@@ -12,8 +12,8 @@ using MyMovies.Data;
 namespace MyMovies.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240530092031_innit")]
-    partial class innit
+    [Migration("20240531025200_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

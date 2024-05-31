@@ -17,7 +17,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(conectionString, ServerVersion.AutoDetect(conectionString));
 });
 
-//builder.Services.AddDefaultIdentity<MyMoviesUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
+
 builder.Services.AddIdentity<User, IdentityRole>(
     options =>
     {
@@ -27,7 +27,7 @@ builder.Services.AddIdentity<User, IdentityRole>(
         options.Password.RequireNonAlphanumeric = false;
         options.Password.RequireLowercase = false;
     }
-    ).AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
+    ).AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders().AddRoles<IdentityRole>();
 
 
 var app = builder.Build();
@@ -35,9 +35,34 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
+    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+    var role = "Admin"; //use array to add more roles
+
+    //use foreach(roles in roles to check and add)
+    if(!await roleManager.RoleExistsAsync(role)) await roleManager.CreateAsync(new IdentityRole(role));
 
     SeedData.Initialize(services);
 }
+using(var scope = app.Services.CreateScope())
+{
+    string Email = "admin@admin.com";
+    var password = "1234";
+
+
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+    if (await userManager.FindByEmailAsync(Email) == null)
+    {
+        var adminUser = new User();
+        adminUser.Name = "Admin";
+        adminUser.UserName = Email;
+        adminUser.Email = Email;
+
+        await userManager.CreateAsync(adminUser, password);
+        await userManager.AddToRoleAsync(adminUser, "Admin");
+    }
+
+}
+
 
 
 // Configure the HTTP request pipeline.

@@ -54,7 +54,47 @@ public static class SeedData
             {
                 return;   // DB has been seeded
             }
+            context.Actors.AddRange(
+                new Actor
+                {
+                    FirstName = "Jason",
+                    LastName = "Cruise",
+                    Age = 30,
+                },
+                new Actor
+                {
+                    FirstName = "Tom",
+                    LastName = "Cruise",
+                    Age = 40,
+                     
+                },
+                new Actor
+                {
+                    FirstName = "Jack",
+                    LastName = "Born",
+                    Age = 20,
+                },
+                new Actor
+                {
+                    FirstName = "Tom",
+                    LastName = "Smith",
+                    Age = 50,
 
+                },
+                new Actor
+                {
+                    FirstName = "James",
+                    LastName = "Ryan",
+                    Age = 30,
+                },
+                new Actor
+                {
+                    FirstName = "Sarah",
+                    LastName = "Bonny",
+                    Age = 22,
+
+                }
+                );
 
             context.SaveChanges();
         }

@@ -1,4 +1,6 @@
-﻿@model MyMovies.Models.Movie
+﻿@model MyMovies.Models.Movie;
+
+@using MyMovies.Models;
 
 @{
     ViewData["Title"] = "Edit";
@@ -34,6 +36,17 @@
                 <span asp-validation-for="Rating" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <pre>
+                </pre>
+                <label class="control-label">Selection Actors Involed:</label>
+                <select name="Actors" id="ActorSelect">
+                    @foreach(var actor in Actors)
+                    <option value="">First name</option>
+                </select>
+                <pre>
+                </pre>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
@@ -44,6 +57,3 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

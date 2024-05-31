@@ -4,6 +4,11 @@ namespace MyMovies.Models
 {
     public class Movie
     {
+        public Movie() 
+        {
+            Actors = new List<Actor>();
+        }
+
         [Key]
         public int Id { get; set; }
 

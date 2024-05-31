@@ -1,4 +1,4 @@
-namespace MyMovies.Models
+namespace MyMovies.ViewModels
 {
     public class ErrorViewModel
     {

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MyMovies.Controllers;
 
 namespace MyMovies
@@ -109,6 +110,7 @@ namespace MyMovies
         }
 
         // GET: MoviesController/Edit/5
+        
         public ActionResult Edit(int id)
         {
 
@@ -116,6 +118,7 @@ namespace MyMovies
         }
 
         // POST: MoviesController/Edit/5
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(int id, [Bind("Id, Title, ReleaseDate, Genre, Rating ")] Movie Movie)
@@ -141,6 +144,7 @@ namespace MyMovies
             return View(Movie);
         }
         // GET: MoviesController/Delete/5
+        
         public ActionResult Delete(int id) //need to display information thus need var movie to retreive information
         {
             var movie = _context.Movies.FirstOrDefault(x => x.Id == id);
@@ -148,7 +152,7 @@ namespace MyMovies
         }
 
         // POST: MoviesController/Delete/5
-
+        
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
