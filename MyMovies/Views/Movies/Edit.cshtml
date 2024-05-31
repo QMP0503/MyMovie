@@ -1,4 +1,4 @@
-﻿@model MyMovies.Models.Movie;
+﻿@model MyMovies.ViewModels.MovieActorVM;
 
 @using MyMovies.Models;
 
@@ -40,8 +40,12 @@
                 </pre>
                 <label class="control-label">Selection Actors Involed:</label>
                 <select name="Actors" id="ActorSelect">
-                    @foreach(var actor in Actors)
-                    <option value="">First name</option>
+                    @foreach (var actors in Model.Actors)
+                    {
+                        <option value="">@actors.FirstName</option>
+                    }
+                    
+                    
                 </select>
                 <pre>
                 </pre>

@@ -1,13 +1,16 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using MyMovies.Data;
 using System;
 using System.Linq;
+using System.Text.Json;
 
 namespace MyMovies.Models;
 
 public static class SeedData
 {
+        
     public static void Initialize(IServiceProvider serviceProvider)
     {
         using (var context = new ApplicationDbContext(
@@ -92,10 +95,14 @@ public static class SeedData
                     FirstName = "Sarah",
                     LastName = "Bonny",
                     Age = 22,
-
                 }
                 );
 
+
+ 
+           // List<MovieTest> movieTest = JsonSerializer.Deserialize<List<MovieTest>>(File.ReadAllText("movies-250-edit.json"));
+
+            //context.MovieTests.AddRange(movieTest);
             context.SaveChanges();
         }
     }

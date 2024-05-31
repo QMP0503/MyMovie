@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MyMovies.Models;
+using MyMovies.ViewModels;
 using System.Diagnostics;
 
 namespace MyMovies.Controllers

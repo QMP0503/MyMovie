@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MyMovies.Controllers;
+using MyMovies.ViewModels;
 
 namespace MyMovies
 {
@@ -82,7 +83,8 @@ namespace MyMovies
         // GET: MoviesController/Create
         public ActionResult Create()
         {  
-            return View();
+            var actor = _context.Actors.ToList();
+            return View(actor);
         }
 
         // POST: MoviesController/Create
@@ -113,15 +115,25 @@ namespace MyMovies
         
         public ActionResult Edit(int id)
         {
-
-            return View();
+            var actor = _context.Actors.ToList();
+            var movie = _context.Movies.FirstOrDefault(x => x.Id == id);
+            var model = new MovieActorVM()
+            {
+                Actors = actor,
+                Id = movie.Id,
+                Title = movie.Title,
+                ReleaseDate = movie.ReleaseDate,
+                Genre = movie.Genre,
+                Rating = movie.Rating
+            };
+            return View(model);
         }
 
         // POST: MoviesController/Edit/5
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(int id, [Bind("Id, Title, ReleaseDate, Genre, Rating ")] Movie Movie)
+        public async Task<ActionResult> Edit(int id, [Bind("Id, Title, ReleaseDate, Genre, Rating, Actors")] Movie Movie)
         {
             if (id != Movie.Id)
             {

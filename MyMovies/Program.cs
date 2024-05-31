@@ -4,6 +4,8 @@ global using MyMovies.Models;
 global using MyMovies.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
+using System.Text.Json;
+using Newtonsoft.Json;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -83,5 +85,13 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+using (StreamReader r = new StreamReader("C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\wwwroot\\movies-250.json"))
+{
+    string json = r.ReadToEnd();
+    MovieTestArray movieTest = JsonConvert.DeserializeObject<MovieTestArray>(json);
+    
+}
 
 app.Run();

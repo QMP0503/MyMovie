@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tz9L7cM5gOgYjJ9xllCfGmzpKyIpsUWql4P1QNaZ94s=",
+  "Hash": "OQ7fwYoKQyln02mUlCca0lwV7NqqdmZuhAyc/K1QzFk=",
   "Source": "MyMovies",
   "BasePath": "_content/MyMovies",
   "Mode": "Default",
@@ -2333,6 +2333,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\wwwroot\\movies-250.json",
+      "SourceId": "MyMovies",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\wwwroot\\",
+      "BasePath": "_content/MyMovies",
+      "RelativePath": "movies-250.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\movies-250.json"
     }
   ]
 }
