@@ -89,8 +89,8 @@ namespace MyMovies
         // GET: MoviesController/Create
         public ActionResult Create()
         {  
-            var actor = _context.Actors.ToList();
-            return View(actor);
+           // var actor = _context.Actors.ToList();
+            return View();
         }
 
         // POST: MoviesController/Create
@@ -118,24 +118,15 @@ namespace MyMovies
         }
 
         // GET: MoviesController/Edit/5
-        
-        //public ActionResult Edit(int id) 
-        //{
-        //    //var actor = _context.Actors.ToList(); seperate actor from movie db.
-        //    var movie = _context.Movies250.FirstOrDefault(x => x.Id == id);
-        //    var model = new MovieActorVM()
-        //    {
-        //        Actors = actor,
-        //        Id = movie.Id,
-        //        Title = movie.Title,
-        //        ReleaseDate = movie.ReleaseDate,
-        //        Genre = movie.Genre,
-        //        Rating = movie.Rating
-        //    };
-        //    return View(model);
-        //}
 
-        // POST: MoviesController/Edit/5
+        public ActionResult Edit(int id)
+        {
+            //var actor = _context.Actors.ToList(); seperate actor from movie db.
+            var movie = _context.Movies250.FirstOrDefault(x => x.Id == id);
+            return View(movie);
+        }
+
+        //POST: MoviesController/Edit/5
         
         [HttpPost]
         [ValidateAntiForgeryToken]

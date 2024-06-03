@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyMovies.Data;
 
@@ -11,9 +12,11 @@ using MyMovies.Data;
 namespace MyMovies.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240603075943_directTemp")]
+    partial class directTemp
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,19 +25,19 @@ namespace MyMovies.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("DirectorMovie", b =>
+            modelBuilder.Entity("ActorMovie", b =>
                 {
-                    b.Property<int>("DirectorId")
+                    b.Property<int>("ActorsId")
                         .HasColumnType("int");
 
                     b.Property<int>("MoviesId")
                         .HasColumnType("int");
 
-                    b.HasKey("DirectorId", "MoviesId");
+                    b.HasKey("ActorsId", "MoviesId");
 
                     b.HasIndex("MoviesId");
 
-                    b.ToTable("DirectorMovie");
+                    b.ToTable("ActorMovie");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -193,23 +196,6 @@ namespace MyMovies.Migrations
                     b.ToTable("Actors");
                 });
 
-            modelBuilder.Entity("MyMovies.Models.Director", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Directors");
-                });
-
             modelBuilder.Entity("MyMovies.Models.DirectorTemp", b =>
                 {
                     b.Property<int>("Id")
@@ -235,74 +221,20 @@ namespace MyMovies.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("ActorId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Actors")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Awards")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("BoxOffice")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Country")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.Property<string>("Genre")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Language")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<decimal>("Rating")
+                        .HasColumnType("decimal(18, 2)");
 
-                    b.Property<int>("Metascore")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Plot")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Poster")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Rated")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<DateOnly>("Release")
-                        .HasColumnType("date");
-
-                    b.Property<string>("Runtime")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<DateTime>("ReleaseDate")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Writer")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("Year")
-                        .HasColumnType("int");
-
-                    b.Property<double>("imdbRating")
-                        .HasColumnType("double");
-
-                    b.Property<int>("imdbVotes")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("ActorId");
 
                     b.ToTable("Movies");
                 });
@@ -455,11 +387,11 @@ namespace MyMovies.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("DirectorMovie", b =>
+            modelBuilder.Entity("ActorMovie", b =>
                 {
-                    b.HasOne("MyMovies.Models.Director", null)
+                    b.HasOne("MyMovies.Models.Actor", null)
                         .WithMany()
-                        .HasForeignKey("DirectorId")
+                        .HasForeignKey("ActorsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -519,18 +451,6 @@ namespace MyMovies.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("MyMovies.Models.Movie", b =>
-                {
-                    b.HasOne("MyMovies.Models.Actor", null)
-                        .WithMany("Movies")
-                        .HasForeignKey("ActorId");
-                });
-
-            modelBuilder.Entity("MyMovies.Models.Actor", b =>
-                {
-                    b.Navigation("Movies");
                 });
 #pragma warning restore 612, 618
         }

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using MyMovies.Data;
+using MyMovies.Migrations;
 using MyMovies.Models.ReadJsonModels;
 using Newtonsoft.Json;
 using NuGet.Versioning;
@@ -23,133 +24,112 @@ public static class SeedData
                 DbContextOptions<ApplicationDbContext>>()))
         {
 
-            //if (context.Movies.Any())
-            //    {
-            //        return;   // DB has been seeded
-            //    }
-            //context.Movies.AddRange(
-            //    new Movie
-            //    {
-            //        Title = "When Harry Met Sally",
-            //        ReleaseDate = DateTime.Parse("1989-2-12"),
-            //        Genre = "Romantic Comedy",
-            //        Rating = 8,
+            //StreamReader r = new StreamReader("C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\wwwroot\\movies-250.json");
 
-            //    },
-            //    new Movie
+            //string json = r.ReadToEnd();
+            //MovieTestArray movieTest = JsonConvert.DeserializeObject<MovieTestArray>(json);
+            //var movieArray = new List<Movie250>();
+            //int i = 0;
+            //IFormatProvider provider = CultureInfo.CreateSpecificCulture("en-US");
+            //foreach (var movie in movieTest.movies)
+            //{
+            //    int.TryParse(movie.BoxOffice, NumberStyles.Integer | NumberStyles.AllowThousands,
+            //            provider, out int boxOffice);
+            //    int.TryParse(movie.Year, out int year);
+            //    int.TryParse(movie.imdbVotes, NumberStyles.Integer | NumberStyles.AllowThousands,
+            //            provider, out int votes);
+            //    int.TryParse(movie.Metascore, NumberStyles.Integer | NumberStyles.AllowThousands, provider, out int metascore);
+            //    double.TryParse(movie.imdbRating, NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands,
+            //            provider, out double rating);
+            //    DateOnly.TryParse(movie.Released, CultureInfo.InvariantCulture,  out DateOnly released);
+            //    movieArray.Add(
+            //    new Movie250
             //    {
-            //        Title = "Ghostbusters ",
-            //        ReleaseDate = DateTime.Parse("1984-3-13"),
-            //        Genre = "Comedy",
-            //        Rating = 6
-            //    },
-            //    new Movie
-            //    {
-            //        Title = "Ghostbusters 2",
-            //        ReleaseDate = DateTime.Parse("1986-2-23"),
-            //        Genre = "Comedy",
-            //        Rating = 2
-            //    },
-            //    new Movie
-            //    {
-            //        Title = "Rio Bravo",
-            //        ReleaseDate = DateTime.Parse("1959-4-15"),
-            //        Genre = "Western",
-            //        Rating = 10
-            //    }
-            //);
-            //if (context.Actors.Any())
+            //        Title = movie.Title,
+            //        Year = year,
+            //        Actors = movie.Actors,
+            //        Rated = movie.Rated,
+            //        Release = released,
+            //        Runtime = movie.Runtime,
+            //        Genre = movie.Genre,
+            //        Director = movie.Director,
+            //        Writer = movie.Writer,
+            //        Plot = movie.Plot,
+            //        Language = movie.Language,
+            //        Country = movie.Country,
+            //        Awards = movie.Awards,
+            //        Poster = movie.Poster,
+            //        Metascore = metascore,
+            //        imdbRating = rating,
+            //        imdbVotes = votes,
+            //        BoxOffice = boxOffice,
+            //    });
+            //}
+            ////var test = movieArray.OrderByDescending(x => x.Release);
+            //if (context.Movies250.Any())
             //{
             //    return;   // DB has been seeded
             //}
-            //context.Actors.AddRange(
-            //    new Actor
-            //    {
-            //        FirstName = "Jason",
-            //        LastName = "Cruise",
-            //        Age = 30,
-            //    },
-            //    new Actor
-            //    {
-            //        FirstName = "Tom",
-            //        LastName = "Cruise",
-            //        Age = 40,
+            //context.Movies250.AddRange(movieArray);
 
-            //    },
-            //    new Actor
-            //    {
-            //        FirstName = "Jack",
-            //        LastName = "Born",
-            //        Age = 20,
-            //    },
-            //    new Actor
-            //    {
-            //        FirstName = "Tom",
-            //        LastName = "Smith",
-            //        Age = 50,
+            //var directorList =  new List<DirectorTemp>();
 
-            //    },
-            //    new Actor
+            //var movie250 = context.Movies250.ToList();
+
+            //int i = 0;
+
+            //foreach (var movie in movie250)
+            //{
+            //    string[] directorArray = movie.Director.Split(", ");
+            //    foreach(var director in directorArray)
             //    {
-            //        FirstName = "James",
-            //        LastName = "Ryan",
-            //        Age = 30,
-            //    },
-            //    new Actor
+            //        if(directorList.Any(x => x.Name == director))
+            //        {
+            //            continue;
+            //        }
+            //        directorList.Add(new DirectorTemp
+            //        {
+            //            Id = ++ i,
+            //            Name = director
+            //        });
+            //    }     
+            //}
+            //var test = directorList.Count();
+
+            //var distinct = directorList.Select(x => x).Distinct();
+
+            //if (context.DirectorTemp.Any())
+            //{
+            //    return;   // DB has been seeded
+
+            //}
+
+            //context.DirectorTemp.AddRange(directorList);
+
+            var directors = context.DirectorTemp.ToList();  
+            var movie = context.Movies250.ToList();
+
+            var directorToDb = new List<Director>();
+            var movieDb = new List<Movie>();
+
+
+            context.Movies.AddRange();
+
+
+            //foreach(var mov in movie)
+            //{
+            //    string[] directorArray = mov.Director.Split(", ");
+                
+            //    foreach(var director in directorArray)
             //    {
-            //        FirstName = "Sarah",
-            //        LastName = "Bonny",
-            //        Age = 22,
+            //       directorToDb.Add(new Director
+            //        {
+            //            Name = director,
+            //        });
             //    }
-            //    );
+            //}
 
-            StreamReader r = new StreamReader("C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\wwwroot\\movies-250.json");
 
-            string json = r.ReadToEnd();
-            MovieTestArray movieTest = JsonConvert.DeserializeObject<MovieTestArray>(json);
-            var movieArray = new List<Movie250>();
-            int i = 0;
-            IFormatProvider provider = CultureInfo.CreateSpecificCulture("en-US");
-            foreach (var movie in movieTest.movies)
-            {
-                int.TryParse(movie.BoxOffice, NumberStyles.Integer | NumberStyles.AllowThousands,
-                        provider, out int boxOffice);
-                int.TryParse(movie.Year, out int year);
-                int.TryParse(movie.imdbVotes, NumberStyles.Integer | NumberStyles.AllowThousands,
-                        provider, out int votes);
-                int.TryParse(movie.Metascore, NumberStyles.Integer | NumberStyles.AllowThousands, provider, out int metascore);
-                double.TryParse(movie.imdbRating, NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands,
-                        provider, out double rating);
-                DateOnly.TryParse(movie.Released, CultureInfo.InvariantCulture,  out DateOnly released);
-                movieArray.Add(
-                new Movie250
-                {
-                    Title = movie.Title,
-                    Year = year,
-                    Actors = movie.Actors,
-                    Rated = movie.Rated,
-                    Release = released,
-                    Runtime = movie.Runtime,
-                    Genre = movie.Genre,
-                    Director = movie.Director,
-                    Writer = movie.Writer,
-                    Plot = movie.Plot,
-                    Language = movie.Language,
-                    Country = movie.Country,
-                    Awards = movie.Awards,
-                    Poster = movie.Poster,
-                    Metascore = metascore,
-                    imdbRating = rating,
-                    imdbVotes = votes,
-                    BoxOffice = boxOffice,
-                });
-            }
-            //var test = movieArray.OrderByDescending(x => x.Release);
-            if (context.Movies250.Any())
-            {
-                return;   // DB has been seeded
-            }
-            context.Movies250.AddRange(movieArray);
             context.SaveChanges();
 
 

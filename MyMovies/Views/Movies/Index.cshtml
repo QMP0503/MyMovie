@@ -1,7 +1,8 @@
-﻿@model MyMovies.Controllers.PaginatedList<MyMovies.Models.Movie>
+﻿@model MyMovies.Controllers.PaginatedList<MyMovies.Models.Movie250>
 @using Microsoft.AspNetCore.Identity;
 @inject SignInManager<User> SignInManager;
 @inject UserManager<User> UserManager;
+@*using MyMovies.wwwroot.css.test*@
 @{
     ViewData["Title"] = "Index";
 }
@@ -14,6 +15,66 @@
         <a asp-action="Create">Create New</a>
     }
 </p>
+
+@foreach(var item in Model)
+{
+    <div class="" id="bright">
+        <div class="">
+            <div class="">
+                <img class="col-sm-4" src=@item.Poster />
+                <h1>@Html.DisplayFor(itemModel => item.Title)</h1>
+                <h4>@Html.DisplayFor(itemModel => item.Year), @Html.DisplayFor(itemModel => item.Director)</h4>
+                <span class="minutes">@Html.DisplayFor(itemModel => item.Runtime)</span>
+                <p class="type">@Html.DisplayFor(itemModel => item.Genre)</p>
+            </div>
+            <div class="movie_desc">
+                <p class="text">
+                    @Html.DisplayFor(itemModel => item.Plot)
+                </p>
+            </div>
+            <div class="movie_social">
+                <ul>
+                    <li><i class="material-icons">share</i></li>
+                    <li><i class="material-icons"></i></li>
+                    <li><i class="material-icons">chat_bubble</i></li>
+                </ul>
+            </div>
+        </div>
+        <div class="blur_back bright_back"></div>
+    </div>
+
+@*     <div class="col-sm-4">
+        <img src="@item.Poster"/>
+    </div> *@
+
+
+}
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>
+
+
+
+
+@*
+Old movie html page (backup incase new page fails)    
 
 <tbody>
 
@@ -73,24 +134,7 @@
 }
     </tbody>
 </table>
-        @{
-            var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
-            var nextDisabled = !Model.HasNextPage ? "disabled" : "";
-        }
-
-        <a asp-action="Index"
-           asp-route-sortOrder="@ViewData["CurrentSort"]"
-           asp-route-pageNumber="@(Model.PageIndex - 1)"
-           asp-route-currentFilter="@ViewData["CurrentFilter"]"
-           class="btn btn-default @prevDisabled">
-            Previous
-        </a>
-        <a asp-action="Index"
-           asp-route-sortOrder="@ViewData["CurrentSort"]"
-           asp-route-pageNumber="@(Model.PageIndex + 1)"
-           asp-route-currentFilter="@ViewData["CurrentFilter"]"
-           class="btn btn-default @nextDisabled">
-            Next
-        </a>
+        
 
 
+ *@

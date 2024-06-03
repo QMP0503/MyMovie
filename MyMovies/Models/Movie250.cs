@@ -7,6 +7,7 @@
         public string Title { get; set; }
         public int Year { get; set; }
         public string Rated { get; set; }
+        [Display(Name = "Release Date")]
         public DateOnly Release { get; set; }
         public string Runtime { get; set; }
         public string Genre { get; set; }
