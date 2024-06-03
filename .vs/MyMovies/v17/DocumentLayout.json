@@ -3,60 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|c:\\users\\intern.pmquang1\\c#\\mymovies\\mymovies\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|solutionrelative:mymovies\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|c:\\users\\intern.pmquang1\\c#\\mymovies\\mymovies\\models\\rating.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|solutionrelative:mymovies\\models\\rating.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|c:\\users\\intern.pmquang1\\c#\\mymovies\\mymovies\\models\\movietest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|solutionrelative:mymovies\\models\\movietest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|c:\\users\\intern.pmquang1\\c#\\mymovies\\mymovies\\models\\movietestarray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|solutionrelative:mymovies\\models\\movietestarray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|c:\\users\\intern.pmquang1\\c#\\mymovies\\mymovies\\wwwroot\\movies-250.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|solutionrelative:mymovies\\wwwroot\\movies-250.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|c:\\users\\intern.pmquang1\\c#\\mymovies\\mymovies\\models\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|solutionrelative:mymovies\\models\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|c:\\users\\intern.pmquang1\\c#\\mymovies\\mymovies\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|solutionrelative:mymovies\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|c:\\users\\intern.pmquang1\\c#\\mymovies\\mymovies\\models\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|solutionrelative:mymovies\\models\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|c:\\users\\intern.pmquang1\\c#\\mymovies\\mymovies\\views\\movies\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|solutionrelative:mymovies\\views\\movies\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|c:\\users\\intern.pmquang1\\c#\\mymovies\\mymovies\\controllers\\moviescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|solutionrelative:mymovies\\controllers\\moviescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|c:\\users\\intern.pmquang1\\c#\\mymovies\\mymovies\\viewmodels\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|solutionrelative:mymovies\\viewmodels\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|c:\\users\\intern.pmquang1\\c#\\mymovies\\mymovies\\controllers\\paginatedlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|solutionrelative:mymovies\\controllers\\paginatedlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|c:\\users\\intern.pmquang1\\c#\\mymovies\\mymovies\\models\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|solutionrelative:mymovies\\models\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|c:\\users\\intern.pmquang1\\c#\\mymovies\\mymovies\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|solutionrelative:mymovies\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|c:\\users\\intern.pmquang1\\c#\\mymovies\\mymovies\\viewmodels\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|solutionrelative:mymovies\\viewmodels\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|c:\\users\\intern.pmquang1\\c#\\mymovies\\mymovies\\viewmodels\\movieactorvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|solutionrelative:mymovies\\viewmodels\\movieactorvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|c:\\users\\intern.pmquang1\\c#\\mymovies\\mymovies\\views\\movies\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|solutionrelative:mymovies\\views\\movies\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|c:\\users\\intern.pmquang1\\c#\\mymovies\\mymovies\\views\\movies\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|solutionrelative:mymovies\\views\\movies\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2735AEDE-3089-4943-ACBA-AFADCD63224C}|MyMovies\\MyMovies.csproj|c:\\users\\intern.pmquang1\\c#\\mymovies\\mymovies\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -81,134 +53,38 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 159,
-          "SelectedChildIndex": 2,
+          "DockedWidth": 240,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MovieTest.cs",
-              "DocumentMoniker": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\Models\\MovieTest.cs",
-              "RelativeDocumentMoniker": "MyMovies\\Models\\MovieTest.cs",
-              "ToolTip": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\Models\\MovieTest.cs",
-              "RelativeToolTip": "MyMovies\\Models\\MovieTest.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAtAAAA",
+              "Title": "PaginatedList.cs",
+              "DocumentMoniker": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\Controllers\\PaginatedList.cs",
+              "RelativeDocumentMoniker": "MyMovies\\Controllers\\PaginatedList.cs",
+              "ToolTip": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\Controllers\\PaginatedList.cs",
+              "RelativeToolTip": "MyMovies\\Controllers\\PaginatedList.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-31T09:48:58.021Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MovieTestArray.cs",
-              "DocumentMoniker": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\Models\\MovieTestArray.cs",
-              "RelativeDocumentMoniker": "MyMovies\\Models\\MovieTestArray.cs",
-              "ToolTip": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\Models\\MovieTestArray.cs",
-              "RelativeToolTip": "MyMovies\\Models\\MovieTestArray.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-31T10:12:00.744Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\Program.cs",
-              "RelativeDocumentMoniker": "MyMovies\\Program.cs",
-              "ToolTip": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\Program.cs",
-              "RelativeToolTip": "MyMovies\\Program.cs",
-              "ViewState": "AQIAAE4AAAAAAAAAAAAgwFQAAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-31T07:08:25.73Z",
-              "IsPinned": true,
+              "WhenOpened": "2024-06-03T04:22:03.618Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Rating.cs",
-              "DocumentMoniker": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\Models\\Rating.cs",
-              "RelativeDocumentMoniker": "MyMovies\\Models\\Rating.cs",
-              "ToolTip": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\Models\\Rating.cs",
-              "RelativeToolTip": "MyMovies\\Models\\Rating.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-31T09:55:00.1Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "movies-250.json",
-              "DocumentMoniker": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\wwwroot\\movies-250.json",
-              "RelativeDocumentMoniker": "MyMovies\\wwwroot\\movies-250.json",
-              "ToolTip": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\wwwroot\\movies-250.json",
-              "RelativeToolTip": "MyMovies\\wwwroot\\movies-250.json",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAAAIAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-05-31T09:49:05.205Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "MyMovies\\Data\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "MyMovies\\Data\\ApplicationDbContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-31T10:30:48.212Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\Views\\Movies\\Edit.cshtml",
-              "RelativeDocumentMoniker": "MyMovies\\Views\\Movies\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\Views\\Movies\\Edit.cshtml",
-              "RelativeToolTip": "MyMovies\\Views\\Movies\\Edit.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACsAAAAUAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-31T03:09:17.081Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
               "Title": "MoviesController.cs",
               "DocumentMoniker": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\Controllers\\MoviesController.cs",
               "RelativeDocumentMoniker": "MyMovies\\Controllers\\MoviesController.cs",
               "ToolTip": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\Controllers\\MoviesController.cs",
               "RelativeToolTip": "MyMovies\\Controllers\\MoviesController.cs",
-              "ViewState": "AQIAAHIAAAAAAAAAAAAgwHQAAAAJAAAA",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAQwKUAAABAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-31T02:53:20.391Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "MovieActorVM.cs",
-              "DocumentMoniker": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\ViewModels\\MovieActorVM.cs",
-              "RelativeDocumentMoniker": "MyMovies\\ViewModels\\MovieActorVM.cs",
-              "ToolTip": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\ViewModels\\MovieActorVM.cs",
-              "RelativeToolTip": "MyMovies\\ViewModels\\MovieActorVM.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-31T08:47:45.661Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
               "Title": "Movie.cs",
               "DocumentMoniker": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\Models\\Movie.cs",
               "RelativeDocumentMoniker": "MyMovies\\Models\\Movie.cs",
@@ -221,7 +97,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 4,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "MyMovies\\Controllers\\AccountController.cs",
@@ -234,7 +110,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 10,
               "Title": "LoginVM.cs",
               "DocumentMoniker": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\ViewModels\\LoginVM.cs",
               "RelativeDocumentMoniker": "MyMovies\\ViewModels\\LoginVM.cs",
@@ -242,12 +118,36 @@
               "RelativeToolTip": "MyMovies\\ViewModels\\LoginVM.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-31T08:31:53.003Z",
+              "WhenOpened": "2024-05-31T08:31:53.003Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\Views\\Movies\\Index.cshtml",
+              "RelativeDocumentMoniker": "MyMovies\\Views\\Movies\\Index.cshtml",
+              "ToolTip": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\Views\\Movies\\Index.cshtml",
+              "RelativeToolTip": "MyMovies\\Views\\Movies\\Index.cshtml",
+              "ViewState": "AQIAAEUAAAAAAAAAAAAAAGAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-31T07:15:45.959Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 6,
+              "Title": "MovieActorVM.cs",
+              "DocumentMoniker": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\ViewModels\\MovieActorVM.cs",
+              "RelativeDocumentMoniker": "MyMovies\\ViewModels\\MovieActorVM.cs",
+              "ToolTip": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\ViewModels\\MovieActorVM.cs",
+              "RelativeToolTip": "MyMovies\\ViewModels\\MovieActorVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-31T08:47:45.661Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\Views\\Movies\\Create.cshtml",
               "RelativeDocumentMoniker": "MyMovies\\Views\\Movies\\Create.cshtml",
@@ -255,25 +155,11 @@
               "RelativeToolTip": "MyMovies\\Views\\Movies\\Create.cshtml",
               "ViewState": "AQIAABgAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-31T08:17:33.903Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-31T08:17:33.903Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\Views\\Movies\\Index.cshtml",
-              "RelativeDocumentMoniker": "MyMovies\\Views\\Movies\\Index.cshtml",
-              "ToolTip": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\Views\\Movies\\Index.cshtml",
-              "RelativeToolTip": "MyMovies\\Views\\Movies\\Index.cshtml",
-              "ViewState": "AQIAABsAAAAAAAAAAAAAAAAAAAAPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-31T07:15:45.959Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 8,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "MyMovies\\Views\\Shared\\_Layout.cshtml",
@@ -281,12 +167,11 @@
               "RelativeToolTip": "MyMovies\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-31T07:15:44.326Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-31T07:15:44.326Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 5,
               "Title": "ErrorViewModel.cs",
               "DocumentMoniker": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\ViewModels\\ErrorViewModel.cs",
               "RelativeDocumentMoniker": "MyMovies\\ViewModels\\ErrorViewModel.cs",
@@ -294,12 +179,11 @@
               "RelativeToolTip": "MyMovies\\ViewModels\\ErrorViewModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-31T07:13:55.015Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-31T07:13:55.015Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 7,
               "Title": "Error.cshtml",
               "DocumentMoniker": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\Views\\Shared\\Error.cshtml",
               "RelativeDocumentMoniker": "MyMovies\\Views\\Shared\\Error.cshtml",
@@ -307,21 +191,7 @@
               "RelativeToolTip": "MyMovies\\Views\\Shared\\Error.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-31T07:13:40.479Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SeedData.cs",
-              "DocumentMoniker": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\Models\\SeedData.cs",
-              "RelativeDocumentMoniker": "MyMovies\\Models\\SeedData.cs",
-              "ToolTip": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\Models\\SeedData.cs",
-              "RelativeToolTip": "MyMovies\\Models\\SeedData.cs",
-              "ViewState": "AQIAAFYAAAAAAAAAAAASwGMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-31T04:44:34.86Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-31T07:13:40.479Z"
             }
           ]
         }

@@ -12,8 +12,8 @@ using MyMovies.Data;
 namespace MyMovies.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240531071828_MovieTest")]
-    partial class MovieTest
+    [Migration("20240603020223_movie250")]
+    partial class movie250
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -222,7 +222,7 @@ namespace MyMovies.Migrations
                     b.ToTable("Movies");
                 });
 
-            modelBuilder.Entity("MyMovies.Models.MovieTest", b =>
+            modelBuilder.Entity("MyMovies.Models.Movie250", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -238,14 +238,10 @@ namespace MyMovies.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<double>("BoxOffice")
-                        .HasColumnType("double");
+                    b.Property<float>("BoxOffice")
+                        .HasColumnType("float");
 
                     b.Property<string>("Country")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("DVD")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -261,9 +257,8 @@ namespace MyMovies.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Metascore")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<int>("Metascore")
+                        .HasColumnType("int");
 
                     b.Property<string>("Plot")
                         .IsRequired()
@@ -273,38 +268,17 @@ namespace MyMovies.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Production")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.Property<string>("Rated")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Rating")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<DateOnly>("Release")
+                        .HasColumnType("date");
 
-                    b.Property<DateTime>("Release")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("Response")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Runtime")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<TimeOnly>("Runtime")
+                        .HasColumnType("time(6)");
 
                     b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Website")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -315,21 +289,15 @@ namespace MyMovies.Migrations
                     b.Property<int>("Year")
                         .HasColumnType("int");
 
-                    b.Property<string>("imdbID")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<float>("imdbRating")
+                        .HasColumnType("float");
 
-                    b.Property<string>("imdbRating")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("imdbVotes")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<int>("imdbVotes")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("MovieTests");
+                    b.ToTable("Movies250");
                 });
 
             modelBuilder.Entity("MyMovies.Models.User", b =>

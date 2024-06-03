@@ -66,7 +66,6 @@ using(var scope = app.Services.CreateScope())
 }
 
 
-
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -86,12 +85,5 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-
-using (StreamReader r = new StreamReader("C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\wwwroot\\movies-250.json"))
-{
-    string json = r.ReadToEnd();
-    MovieTestArray movieTest = JsonConvert.DeserializeObject<MovieTestArray>(json);
-    
-}
 
 app.Run();

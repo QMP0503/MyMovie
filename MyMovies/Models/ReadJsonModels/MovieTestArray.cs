@@ -1,4 +1,6 @@
-﻿namespace MyMovies.Models
+﻿using System.Collections;
+
+namespace MyMovies.Models.ReadJsonModels
 {
     public class MovieTestArray
     {

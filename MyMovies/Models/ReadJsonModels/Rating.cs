@@ -1,4 +1,4 @@
-﻿namespace MyMovies.Models
+﻿namespace MyMovies.Models.ReadJsonModels
 {
 
     public class Rating

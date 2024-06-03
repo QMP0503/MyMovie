@@ -7,13 +7,14 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MyMovies.Migrations
 {
     /// <inheritdoc />
-    public partial class MovieTest : Migration
+    public partial class movie250 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+
             migrationBuilder.CreateTable(
-                name: "MovieTests",
+                name: "Movies250",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -23,9 +24,8 @@ namespace MyMovies.Migrations
                     Year = table.Column<int>(type: "int", nullable: false),
                     Rated = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Release = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    Runtime = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Release = table.Column<DateOnly>(type: "date", nullable: false),
+                    Runtime = table.Column<TimeOnly>(type: "time(6)", nullable: false),
                     Genre = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Director = table.Column<string>(type: "longtext", nullable: false)
@@ -44,31 +44,14 @@ namespace MyMovies.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Poster = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Rating = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Metascore = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    imdbRating = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    imdbVotes = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    imdbID = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Type = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    DVD = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    BoxOffice = table.Column<double>(type: "double", nullable: false),
-                    Production = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Website = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Response = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4")
+                    Metascore = table.Column<int>(type: "int", nullable: false),
+                    imdbRating = table.Column<float>(type: "float", nullable: false),
+                    imdbVotes = table.Column<int>(type: "int", nullable: false),
+                    BoxOffice = table.Column<float>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MovieTests", x => x.Id);
+                    table.PrimaryKey("PK_Movies250", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
         }
@@ -77,7 +60,7 @@ namespace MyMovies.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "MovieTests");
+                name: "Movies250");
         }
     }
 }

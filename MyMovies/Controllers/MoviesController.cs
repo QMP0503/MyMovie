@@ -24,6 +24,7 @@ namespace MyMovies
             ViewData["TitleSortParam"] = string.IsNullOrEmpty(sortOrder) ? "title_desc" : string.Empty;
             ViewData["RatingSortParam"] = sortOrder == "Rating" ? "Rating_desc" : "Rating";
             ViewData["DateSortParam"] = sortOrder == "Date" ? "Date_desc" : "Date";
+            ViewData["RuntimeSortParam"] = sortOrder == "Runtime" ? "Runtime_desc" : "Runtime";
 
             if (!string.IsNullOrEmpty(searchString))
             {
@@ -36,7 +37,7 @@ namespace MyMovies
 
             ViewData["CurrentFilter"] = searchString;
 
-            var moviesQuery = _context.Movies.AsQueryable(); //clearer name
+            var moviesQuery = _context.Movies250.AsQueryable(); //clearer name
 
             if (!string.IsNullOrEmpty(searchString))
             {
@@ -49,35 +50,40 @@ namespace MyMovies
                     moviesQuery = moviesQuery.OrderByDescending(m => m.Title);
                     break;
                 case "Date":
-                    moviesQuery = moviesQuery.OrderBy(m => m.ReleaseDate);
+                    moviesQuery = moviesQuery.OrderBy(m => m.Release);
                     break;
                 case "Date_desc":
-                    moviesQuery = moviesQuery.OrderByDescending(m => m.ReleaseDate);
+                    moviesQuery = moviesQuery.OrderByDescending(m => m.Release);
                     break;
                 case "Rating":
-                    moviesQuery = moviesQuery.OrderBy(m => m.Rating);
+                    moviesQuery = moviesQuery.OrderBy(m => m.imdbRating);
                     break;
                 case "Rating_desc":
-                    moviesQuery = moviesQuery.OrderByDescending(m => m.Rating);
+                    moviesQuery = moviesQuery.OrderByDescending(m => m.imdbRating);
+                    break;
+                case "Runtime":
+                    moviesQuery = moviesQuery.OrderBy(m => m.Runtime);
+                    break;
+                case "Runtime_desc":
+                    moviesQuery = moviesQuery.OrderByDescending(m => m.Runtime);
                     break;
                 default:
                     moviesQuery = moviesQuery.OrderBy(m => m.Title);
                     break;
             }
 
-            const int pageSize = 3;
-            return View(await PaginatedList<Movie>.CreateAsync(moviesQuery.AsNoTracking(), pageNumber ?? 1, pageSize));
+            const int pageSize = 10;
+            return View(await PaginatedList<Movie250>.CreateAsync(moviesQuery.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
             // GET: MoviesController/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null) return NotFound();//error404 responce
 
-            var movie = await _context.Movies
-                .Include(x => x.Actors)
-                .FirstOrDefaultAsync(x => x.Id == id);//search db for id to select
+            var movie250 = await _context.Movies250
+                .FirstOrDefaultAsync(x => x.Id == id);
 
-            return View(movie);
+            return View(movie250);
         }
 
         // GET: MoviesController/Create
@@ -90,7 +96,7 @@ namespace MyMovies
         // POST: MoviesController/Create
         [HttpPost]
         [ValidateAntiForgeryToken] //protect protect against fraud
-        public async Task<ActionResult> Create([Bind("Id, Title, ReleaseDate, Genre, Rating")] Movie Movie)
+        public async Task<ActionResult> Create([Bind("Id, Title, Year, Rated, Release, Runtime, Genre, Director, Writer, Actor, Plot, Language, Country, Awards, Poster, Metascore,imdbRating, imdbVotes, Boxoffice")] Movie250 Movie)
         {
             try
             {
@@ -113,27 +119,27 @@ namespace MyMovies
 
         // GET: MoviesController/Edit/5
         
-        public ActionResult Edit(int id)
-        {
-            var actor = _context.Actors.ToList();
-            var movie = _context.Movies.FirstOrDefault(x => x.Id == id);
-            var model = new MovieActorVM()
-            {
-                Actors = actor,
-                Id = movie.Id,
-                Title = movie.Title,
-                ReleaseDate = movie.ReleaseDate,
-                Genre = movie.Genre,
-                Rating = movie.Rating
-            };
-            return View(model);
-        }
+        //public ActionResult Edit(int id) 
+        //{
+        //    //var actor = _context.Actors.ToList(); seperate actor from movie db.
+        //    var movie = _context.Movies250.FirstOrDefault(x => x.Id == id);
+        //    var model = new MovieActorVM()
+        //    {
+        //        Actors = actor,
+        //        Id = movie.Id,
+        //        Title = movie.Title,
+        //        ReleaseDate = movie.ReleaseDate,
+        //        Genre = movie.Genre,
+        //        Rating = movie.Rating
+        //    };
+        //    return View(model);
+        //}
 
         // POST: MoviesController/Edit/5
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(int id, [Bind("Id, Title, ReleaseDate, Genre, Rating, Actors")] Movie Movie)
+        public async Task<ActionResult> Edit(int id, [Bind("Id, Title, Year, Rated, Release, Runtime, Genre, Director, Writer, Actor, Plot, Language, Country, Awards, Poster, Metascore,imdbRating, imdbVotes, Boxoffice")] Movie250 Movie)
         {
             if (id != Movie.Id)
             {
