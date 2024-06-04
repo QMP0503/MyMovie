@@ -1,4 +1,4 @@
-﻿@model MyMovies.Models.Movie
+﻿@model MyMovies.Models.Movie250
 
 @{
     ViewData["Title"] = "Details";
@@ -6,7 +6,64 @@
 
 <h1>Details</h1>
 
-<div>
+<table class="table">
+    <tbody>
+            <tr>
+                <td>
+                    <img class="img-thumbnail align-content-center img-responsive" display="block" src=@Model.Poster />
+                </td>
+                <td>
+                    <div class="col-sm-8 align-items-center">
+                        <h3>@Html.DisplayFor(model => model.Title)</h3>
+                        <p>
+                        <strong>Release Date:</strong> @Html.DisplayFor(model => model.Release)
+                        </p>
+                        <p>
+                        <strong>Genre:</strong> @Html.DisplayFor(model => model.Genre)
+                        </p>
+                        <p>
+                        <strong>Imdb Rating:</strong> @Html.DisplayFor(model => model.imdbRating)
+                        </p>
+                        <p>
+                        <strong>Director:</strong> @Html.DisplayFor(model => model.Director)
+                        </p>
+                        <p>
+                        <strong>Award:</strong> @Html.DisplayFor(model => model.Awards)
+                        </p>
+                        <p>
+                        <strong>Plot:</strong> @Html.DisplayFor(model => model.Plot)
+                        </p>
+                        <p>
+                        <strong>Actors:</strong> @Html.DisplayFor(model => model.Actors)
+                        </p>
+                        <p> 
+                            <strong>Writors</strong> @Html.DisplayFor(model =>model.Writer)
+                        </p>
+                        <p>
+                        <strong>Language:</strong> @Html.DisplayFor(model => model.Language)
+                        </p>
+                        <p>
+                        <strong>Country:</strong> @Html.DisplayFor(model => model.Country)
+                        </p>
+                        <p>
+                        <strong>BoxOffice:</strong> @if(Model.BoxOffice == 0)
+                        {
+                           <text>N/A</text>
+                        }else{
+                            <text>$</text> @Html.DisplayFor(model => model.BoxOffice)
+                        }
+                        </p>
+                        <div>
+                            <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+                            <a asp-action="Index">Back to List</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+    </tbody>
+</table>
+
+@* <div>
     <h4>Movie</h4>
     <hr />
     <dl class="row">
@@ -41,21 +98,8 @@
             @Html.DisplayFor(model => model.Actors)
         </dd>
 
-        <dt>Main Actors:</dt>
-
-        @*Displaying actor information*@
-        @foreach(var actor in Model.Actors)
-        {
-            <dd class="col-sm-10">
-                - @Html.DisplayFor(actorItem => actor.FirstName), @Html.DisplayFor(actorItem => actor.LastName)
-            </dd>
-
-        }
 
 
     </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+</div> *@
+

@@ -21,6 +21,7 @@
         public int Metascore { get; set; }
         public double imdbRating { get; set; }
         public int imdbVotes { get; set; }
+        [Display(Name = "Box Office")]
         public int BoxOffice { get; set; }
     }
 }

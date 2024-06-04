@@ -27,10 +27,11 @@ namespace MyMovies.Controllers
             string searchString,
             int? pageNumber)
         {
-            ViewData["CurrentSort"] = sortOrder;
-            ViewData["FirstNameSortParam"] = string.IsNullOrEmpty(sortOrder) ? "FirstName_desc" : string.Empty;
-            ViewData["LastNameSortParam"] = sortOrder == "LastName" ? "LastName_desc" : "LastName";
-            ViewData["AgeSortParam"] = sortOrder == "Age" ? "Age_desc" : "Age";
+
+            var actorsQuery = _context.Actors.Include(a => a.Movies).AsQueryable();
+
+            ViewData["CurrentSort"] = actorsQuery = actorsQuery.OrderBy(a => a.Name);
+            ViewData["NameSortParam"] = string.IsNullOrEmpty(sortOrder) ? actorsQuery.OrderByDescending(a => a.Name) : string.Empty;
 
             if (!string.IsNullOrEmpty(searchString))
             {
@@ -43,33 +44,10 @@ namespace MyMovies.Controllers
 
             ViewData["CurrentFilter"] = searchString;
 
-            var actorsQuery = _context.Actors.AsQueryable();
 
             if (!string.IsNullOrEmpty(searchString))
             {
-                actorsQuery = actorsQuery.Where(a => a.FirstName.Contains(searchString) || a.LastName.Contains(searchString));
-            }
-
-            switch (sortOrder)
-            {
-                case "FirstName_desc":
-                    actorsQuery = actorsQuery.OrderByDescending(a => a.FirstName);
-                    break;
-                case "LastName":
-                    actorsQuery = actorsQuery.OrderBy(a => a.LastName);
-                    break;
-                case "LastName_desc":
-                    actorsQuery = actorsQuery.OrderByDescending(a => a.LastName);
-                    break;
-                case "Age":
-                    actorsQuery = actorsQuery.OrderBy(a => a.Age);
-                    break;
-                case "Age_desc":
-                    actorsQuery = actorsQuery.OrderByDescending(a => a.Age);
-                    break;
-                default:
-                    actorsQuery = actorsQuery.OrderBy(a => a.FirstName);
-                    break;
+                actorsQuery = actorsQuery.Where(a => a.Name.Contains(searchString));
             }
 
             int pageSize = 3;
@@ -96,116 +74,116 @@ namespace MyMovies.Controllers
             return View(actor);
         }
 
-        // GET: Actors/Create
-        
-        public IActionResult Create()
-        {
-            return View();
-        }
+//        // GET: Actors/Create
 
-        // POST: Actors/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,Age")] Actor actor)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(actor);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(actor);
-        }
+//        public IActionResult Create()
+//        {
+//            return View();
+//        }
 
-        // GET: Actors/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+//        // POST: Actors/Create
+//        // To protect from overposting attacks, enable the specific properties you want to bind to.
+//        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+//        [HttpPost]
+//        [ValidateAntiForgeryToken]
+//        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,Age")] Actor actor)
+//        {
+//            if (ModelState.IsValid)
+//            {
+//                _context.Add(actor);
+//                await _context.SaveChangesAsync();
+//                return RedirectToAction(nameof(Index));
+//            }
+//            return View(actor);
+//        }
 
-            var actor = await _context.Actors.FindAsync(id);
-            if (actor == null)
-            {
-                return NotFound();
-            }
-            return View(actor);
-        }
+//        // GET: Actors/Edit/5
+//        public async Task<IActionResult> Edit(int? id)
+//        {
+//            if (id == null)
+//            {
+//                return NotFound();
+//            }
 
-        // POST: Actors/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,Age")] Actor actor)
-        {
-            if (id != actor.Id)
-            {
-                return NotFound();
-            }
+//            var actor = await _context.Actors.FindAsync(id);
+//            if (actor == null)
+//            {
+//                return NotFound();
+//            }
+//            return View(actor);
+//        }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(actor);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ActorExists(actor.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(actor);
-        }
+//        // POST: Actors/Edit/5
+//        // To protect from overposting attacks, enable the specific properties you want to bind to.
+//        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+//        [HttpPost]
+//        [ValidateAntiForgeryToken]
+//        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,Age")] Actor actor)
+//        {
+//            if (id != actor.Id)
+//            {
+//                return NotFound();
+//            }
 
-        // GET: Actors/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+//            if (ModelState.IsValid)
+//            {
+//                try
+//                {
+//                    _context.Update(actor);
+//                    await _context.SaveChangesAsync();
+//                }
+//                catch (DbUpdateConcurrencyException)
+//                {
+//                    if (!ActorExists(actor.Id))
+//                    {
+//                        return NotFound();
+//                    }
+//                    else
+//                    {
+//                        throw;
+//                    }
+//                }
+//                return RedirectToAction(nameof(Index));
+//            }
+//            return View(actor);
+//        }
 
-            var actor = await _context.Actors
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (actor == null)
-            {
-                return NotFound();
-            }
+//        // GET: Actors/Delete/5
+//        public async Task<IActionResult> Delete(int? id)
+//        {
+//            if (id == null)
+//            {
+//                return NotFound();
+//            }
 
-            return View(actor);
-        }
+//            var actor = await _context.Actors
+//                .FirstOrDefaultAsync(m => m.Id == id);
+//            if (actor == null)
+//            {
+//                return NotFound();
+//            }
 
-        // POST: Actors/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var actor = await _context.Actors.FindAsync(id);
-            if (actor != null)
-            {
-                _context.Actors.Remove(actor);
-            }
+//            return View(actor);
+//        }
 
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
+//        // POST: Actors/Delete/5
+//        [HttpPost, ActionName("Delete")]
+//        [ValidateAntiForgeryToken]
+//        public async Task<IActionResult> DeleteConfirmed(int id)
+//        {
+//            var actor = await _context.Actors.FindAsync(id);
+//            if (actor != null)
+//            {
+//                _context.Actors.Remove(actor);
+//            }
 
-        private bool ActorExists(int id)
-        {
-            return _context.Actors.Any(e => e.Id == id);
-        }
-    }
+//            await _context.SaveChangesAsync();
+//            return RedirectToAction(nameof(Index));
+//        }
+
+//        private bool ActorExists(int id)
+//        {
+//            return _context.Actors.Any(e => e.Id == id);
+//        }
+   }
 }

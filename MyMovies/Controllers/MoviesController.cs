@@ -37,7 +37,7 @@ namespace MyMovies
 
             ViewData["CurrentFilter"] = searchString;
 
-            var moviesQuery = _context.Movies250.AsQueryable(); //clearer name
+            var moviesQuery = _context.Movies.AsQueryable(); //clearer name
 
             if (!string.IsNullOrEmpty(searchString))
             {
@@ -73,7 +73,7 @@ namespace MyMovies
             }
 
             const int pageSize = 10;
-            return View(await PaginatedList<Movie250>.CreateAsync(moviesQuery.AsNoTracking(), pageNumber ?? 1, pageSize));
+            return View(await PaginatedList<Movie>.CreateAsync(moviesQuery.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
             // GET: MoviesController/Details/5
         public async Task<ActionResult> Details(int? id)
@@ -89,8 +89,8 @@ namespace MyMovies
         // GET: MoviesController/Create
         public ActionResult Create()
         {  
-            var actor = _context.Actors.ToList();
-            return View(actor);
+            //var actor = _context.Actors.ToList();
+            return View();
         }
 
         // POST: MoviesController/Create
@@ -165,29 +165,29 @@ namespace MyMovies
         
         public ActionResult Delete(int id) //need to display information thus need var movie to retreive information
         {
-            var movie = _context.Movies.FirstOrDefault(x => x.Id == id);
-            return View(movie);
+           // var movie = _context.Movies.FirstOrDefault(x => x.Id == id);
+            return View();
         }
 
         // POST: MoviesController/Delete/5
         
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(int id)
-        {
-            try
-            {
-                Movie MovieToDelete = new() { Id = id }; //create new movie type reference
-                _context.Entry(MovieToDelete).State = EntityState.Deleted;
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            catch (DbUpdateException /* ex */)
-            {
-                //Log the error (uncomment ex variable name and write a log.)
-                return RedirectToAction(nameof(Delete), new { id, saveChangesError = true });
-            }
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> DeleteConfirmed(int id)
+        //{
+        //    try
+        //    {
+        //        Movie MovieToDelete = new() { Id = id }; //create new movie type reference
+        //        _context.Entry(MovieToDelete).State = EntityState.Deleted;
+        //        await _context.SaveChangesAsync();
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    catch (DbUpdateException /* ex */)
+        //    {
+        //        //Log the error (uncomment ex variable name and write a log.)
+        //        return RedirectToAction(nameof(Delete), new { id, saveChangesError = true });
+        //    }
 
-        }
+        //}
     }
 }

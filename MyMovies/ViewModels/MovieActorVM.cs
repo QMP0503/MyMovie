@@ -8,6 +8,6 @@
         public string? Genre { get; set; }
         public decimal Rating { get; set; }
 
-        public List<Actor> Actors { get; set; }
+       // public List<Actor> Actors { get; set; }
     }
 }
