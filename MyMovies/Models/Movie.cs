@@ -2,11 +2,6 @@
 {
     public class Movie
     {
-        public Movie() 
-        {
-            Directors = new List<Director>();
-            Actors = new List<Actor>();
-        }
         [Key]
         public int Id { get; set; }
         public string Title { get; set; }
@@ -15,9 +10,9 @@
         public DateOnly Release { get; set; }
         public string Runtime { get; set; }
         public string Genre { get; set; }
-        public List<Director> Directors { get; set; }
+        public ICollection<MovieDirector>? MovieDirectors { get; set; }
         public string Writer { get; set; }
-        public List<Actor> Actors { get; set; }
+        public ICollection<MovieActor>? MovieActors { get; set; }
         public string Plot { get; set; }
         public string Language { get; set; }
         public string Country { get; set; }

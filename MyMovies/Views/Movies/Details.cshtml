@@ -1,10 +1,28 @@
-﻿@model MyMovies.Models.Movie250
-
+﻿@model MyMovies.ViewModels.MovieVM
+@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<User> SignInManager;
+@inject UserManager<User> UserManager;
 @{
     ViewData["Title"] = "Details";
 }
 
 <h1>Details</h1>
+
+@{
+    var actorList = new List<string>();
+    foreach(var actor in Model.Actors)
+    {
+        actorList.Add(actor.Name);
+    }
+
+    var directorList = new List<string>();
+    foreach(var director in Model.Directors)
+    {
+        directorList.Add(director.Name);
+    }
+
+}
+
 
 <table class="table">
     <tbody>
@@ -25,7 +43,8 @@
                         <strong>Imdb Rating:</strong> @Html.DisplayFor(model => model.imdbRating)
                         </p>
                         <p>
-                        <strong>Director:</strong> @Html.DisplayFor(model => model.Director)
+                        <strong>Director:</strong> @if(Model.Directors == null){<Text>N/A</Text>}
+                            @string.Join(", ", directorList)
                         </p>
                         <p>
                         <strong>Award:</strong> @Html.DisplayFor(model => model.Awards)
@@ -34,10 +53,14 @@
                         <strong>Plot:</strong> @Html.DisplayFor(model => model.Plot)
                         </p>
                         <p>
-                        <strong>Actors:</strong> @Html.DisplayFor(model => model.Actors)
+                        <strong>Actors:</strong> @if (Model.Actors == null)
+                        {
+                            <Text>N/A</Text>
+                        }
+                            @string.Join(", ", actorList)
                         </p>
                         <p> 
-                            <strong>Writors</strong> @Html.DisplayFor(model =>model.Writer)
+                        <strong>Writors</strong> @Html.DisplayFor(model =>model.Writer)
                         </p>
                         <p>
                         <strong>Language:</strong> @Html.DisplayFor(model => model.Language)
@@ -54,8 +77,11 @@
                         }
                         </p>
                         <div>
-                            <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-                            <a asp-action="Index">Back to List</a>
+                             @if (User.IsInRole("Admin"))//add role base stuff after finishing CRUD methods
+                             {
+                                <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
+                             }
+                        <a asp-action="Index">Back to List</a>
                         </div>
                     </div>
                 </td>
@@ -101,5 +127,6 @@
 
 
     </dl>
-</div> *@
+</div>*@
 
+ 

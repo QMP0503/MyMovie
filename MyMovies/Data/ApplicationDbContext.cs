@@ -8,34 +8,54 @@ namespace MyMovies.Data
         {  }
 
         public DbSet<Movie250> Movies250 { get; set;}
+
+        //connection (many to many) using one to many below
         public DbSet<Director> Directors { get; set; }
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Actor> Actors { get; set; }
+
+        //connection (one to many)
+        public DbSet<MovieActor> MovieActors { get; set; } 
+        public DbSet<MovieDirector> MovieDirectors { get; set; } 
         
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<Actor>().HasIndex(e => e.Name).IsUnique();
+
+            modelBuilder.Entity<Director>().HasIndex(e => e.Name).IsUnique();
+
             // Configure the primary key for IdentityUserLogin
             modelBuilder.Entity<IdentityUserLogin<string>>()
                 .HasKey(login => new { login.LoginProvider, login.ProviderKey });
 
-            modelBuilder.Entity<Movie>().ToTable(nameof(Movies))
-                .HasMany(m => m.Actors)
-                .WithMany(a => a.Movies)
-                .UsingEntity<MovieActor>();
+            modelBuilder.Entity<Movie>() //movie actor
+                .HasMany(m => m.MovieActors)
+                .WithOne(ma => ma.Movie)
+                .HasForeignKey(ma => ma.MovieId)
+                .IsRequired(false);
 
-            modelBuilder.Entity<Movie>().ToTable(nameof(Movies))
-                .HasMany(d => d.Directors)
-                .WithMany(m => m.Movies)
-                .UsingEntity<MovieDirector>(); //configure model class to act as link (not needed but helps with navigation)
+            modelBuilder.Entity<Movie>() //movie director
+                .HasMany(m => m.MovieDirectors)
+                .WithOne(md => md.Movie)
+                .HasForeignKey(md => md.MovieId)
+                .IsRequired(false);
 
-            //.UsingEntity("MovieDirector",
-            //        l => l.HasOne(typeof(Director)).WithMany().HasForeignKey("MoviesId").HasPrincipalKey(nameof(Director.Id)),
-            //        r => r.HasOne(typeof(Movie)).WithMany().HasForeignKey("DirectorsId").HasPrincipalKey(nameof(Movie.Id)),
-            //        j => j.HasKey("MoviesId", "DirectorsId"));
-            // full config for learning purposes
+            modelBuilder.Entity<Director>()
+                .HasMany(d => d.MovieDirectors)
+                .WithOne(m => m.Director)
+                .HasForeignKey(m => m.DirectorId)
+                .IsRequired(false);
+
+            modelBuilder.Entity<Actor>()
+                .HasMany(a => a.MovieActors)
+                .WithOne(m => m.Actor)
+                .HasForeignKey(m => m.ActorId)
+                .IsRequired(false);
+              
+
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@* @model MyMovies.Models.Movie
+﻿@model MyMovies.ViewModels.MovieVM
 
 
 @{
@@ -19,27 +19,102 @@
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ReleaseDate" class="control-label"></label>
-                <input asp-for="ReleaseDate" class="form-control" />
-                <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+                <label asp-for="Release" class="control-label"></label>
+                <input asp-for="Release" class="form-control" />
+                <span asp-validation-for="Release" class="text-danger"></span>
             </div>
+            
             <div class="form-group">
                 <label asp-for="Genre" class="control-label"></label>
                 <input asp-for="Genre" class="form-control" />
                 <span asp-validation-for="Genre" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Rating" class="control-label"></label>
-                <input asp-for="Rating" class="form-control" />
-                <span asp-validation-for="Rating" class="text-danger"></span>
+                <label asp-for="Rated" class="control-label"></label>
+                <input asp-for="Rated" class="form-control" />
+                <span asp-validation-for="Rated" class="text-danger"></span>
             </div>
-   @*         <div class="form-group">
-                @Html.LabelFor(x => Model, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-5">
-                    @Html.DropDownListFor(x => Model.Actor.FirstName, new SelectList(Model.Actors, "Value", "Text"), htmlAttributes: new { @class = "form-control", id = "Country" })
-                    @Html.ValidationMessageFor(x => x.Actor.FirstName, "", new { @class = "text-danger" })
-                </div>
-            </div> 
+
+            @*add actor and director dropdown menu here*@
+            
+            <div class="form-group">
+                <label class="control-label">Actors: </label>
+                <select class="form-select" multiple aria-label="multiple select">
+                    <option selected>Please Select Actors</option>
+                    @foreach(var actor in Model.Actors)
+                    {
+                        <option value=@actor.Id>@Html.DisplayFor(a => actor.Name)</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Directors: </label>
+                <select class="form-select" multiple aria-label="multiple select">
+                    @foreach (var directors in Model.Directors)
+                    {
+                        <option value=@directors.Id>@Html.DisplayFor(a => directors.Name)</option>
+                    }
+                </select>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Runtime" class="control-label"></label>
+                <input asp-for="Runtime" class="form-control" />
+                <span asp-validation-for="Runtime" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Writer" class="control-label"></label>
+                <input asp-for="Writer" class="form-control" />
+                <span asp-validation-for="Writer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Plot" class="control-label"></label>
+                <input asp-for="Plot" class="form-control" />
+                <span asp-validation-for="Plot" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Language" class="control-label"></label>
+                <input asp-for="Language" class="form-control" />
+                <span asp-validation-for="Language" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Country" class="control-label"></label>
+                <input asp-for="Country" class="form-control" />
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Awards" class="control-label"></label>
+                <input asp-for="Awards" class="form-control" />
+                <span asp-validation-for="Awards" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Poster" class="control-label"></label>
+                <input asp-for="Poster" class="form-control" />
+                <span asp-validation-for="Poster" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Metascore" class="control-label"></label>
+                <input asp-for="Metascore" class="form-control" />
+                <span asp-validation-for="Metascore" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="imdbRating" class="control-label"></label>
+                <input asp-for="imdbRating" class="form-control" />
+                <span asp-validation-for="imdbRating" class="text-danger"></span>
+            </div><div class="form-group">
+                <label asp-for="imdbVotes" class="control-label"></label>
+                <input asp-for="imdbVotes" class="form-control" />
+                <span asp-validation-for="imdbVotes" class="text-danger"></span>
+            </div><div class="form-group">
+                <label asp-for="BoxOffice" class="control-label"></label>
+                <input asp-for="BoxOffice" class="form-control" />
+                <span asp-validation-for="BoxOffice" class="text-danger"></span>
+            </div>
+
+            
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -50,5 +125,3 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-
- *@

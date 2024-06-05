@@ -3,6 +3,7 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Elfie.Serialization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Identity.Client;
 using Microsoft.IdentityModel.Tokens;
 using MyMovies.Data;
 using MyMovies.Models.ReadJsonModels;
@@ -12,6 +13,7 @@ using System;
 using System.Diagnostics.Metrics;
 using System.Globalization;
 using System.Linq;
+using System.Numerics;
 using System.Text.Json;
 using static Microsoft.AspNetCore.Razor.Language.TagHelperMetadata;
 
@@ -74,103 +76,153 @@ public static class SeedData
             //    return;   // DB has been seeded
             //}
             //context.Movies250.AddRange(movieArray);
-            
-            //var mov = context.Movies.ToList();
-            //var dir = context.Directors.ToList();
-            //var act = context.Actors.ToList();
-            //if (mov.Any() || dir.Any() || act.Any()) return;
+            //context.SaveChanges();
 
-            var movie250 = context.Movies250.ToList();
-            var directors = new List<Director>();
-            var actors = new List<Actor>();
-            var movies = new List<Movie>();
+            //var moviedb = context.Movies.ToList();
+            //var actordb = context.Actors.ToList();
+            //var directordb = context.Directors.ToList();
 
-            int i = 1;
-
-            foreach (var movie in movie250)
-            {
-                var directorArray = movie.Director.Split(", ");
-                var actorArray = movie.Actors.Split(", ");
-               
-
-                var actorList = new List<Actor>(); //used inside foreach to link movie with actor (do actor seperate to avoid duplicates)
-                var directorList = new List<Director>();
-                
-                foreach (var actor in actorArray)
-                {
-                    actorList.Add(new Actor
-                    {
-                        Name = actor
-                    });
-                }
-                foreach(var director in directorArray)
-                {
-                    directorList.Add(new Director
-                    {
-                        Name = director
-                    });
-                }
-
-                movies.Add(new Movie //adding movie250 to movie
-                {
-                    Title = movie.Title,
-                    Year = movie.Year,
-                    Rated = movie.Rated,
-                    Release = movie.Release,
-                    Runtime = movie.Runtime,
-                    Genre = movie.Genre,
-                    Writer = movie.Writer,
-                    Plot = movie.Plot,
-                    Language = movie.Language,
-                    Country = movie.Country,
-                    Awards = movie.Awards,
-                    Poster = movie.Poster,
-                    Metascore = movie.Metascore,
-                    imdbRating = movie.imdbRating,
-                    imdbVotes = movie.imdbVotes,
-                    BoxOffice = movie.BoxOffice,
-                    Actors = new List<Actor>(actorList),
-                    Directors = new List<Director>(directorList)
-                });
-                
-                foreach (var director in directorArray)
-                {
-                    if (directors.All(x => x.Name != director))
-                    {
-                        directors.Add(new Director
-                        {
-                            Name = director,
-                            Movies = new List<Movie>(movies)
-                        });
-                    }
-                }
-                foreach (var actor in actorArray)
-                {
-                    if (actors.All(x => x.Name != actor))
-                    {
-                        actors.Add(new Actor
-                        {
-                            Name = actor,
-                            Movies = new List<Movie>(movies)
-                        });
-                    }
-                    else
-                    {
-
-                    }
-                }
-            }
-
-            var test = movies.ToList();
-            var testD = directors.ToList();
-            var testA = actors.ToList();
+            //if (moviedb.Any() || directordb.Any() || actordb.Any()) return; //checking if database already seeded
 
 
 
-            context.AddRange(actors);
-            context.SaveChanges();
+            //var movies = new List<Movie>();
+            //var actors = new List<Actor>();
+            //var directors = new List<Director>();
+
+            //foreach (var movie in movie250)
+            //{
+            //    var directorArray = movie.Director.Split(", ");
+            //    var actorArray = movie.Actors.Split(", ");
 
 
+            //    movies.Add(new Movie //adding movie250 to movie
+            //    {
+            //        Title = movie.Title,
+            //        Year = movie.Year,
+            //        Rated = movie.Rated,
+            //        Release = movie.Release,
+            //        Runtime = movie.Runtime,
+            //        Genre = movie.Genre,
+            //        Writer = movie.Writer,
+            //        Plot = movie.Plot,
+            //        Language = movie.Language,
+            //        Country = movie.Country,
+            //        Awards = movie.Awards,
+            //        Poster = movie.Poster,
+            //        Metascore = movie.Metascore,
+            //        imdbRating = movie.imdbRating,
+            //        imdbVotes = movie.imdbVotes,
+            //        BoxOffice = movie.BoxOffice,
+
+            //    });
+
+            //    foreach (var director in directorArray)
+            //    {
+            //        var existingDirector = directors.FirstOrDefault(x => x.Name == director);
+            //        if (existingDirector == null)
+            //        {
+            //            directors.Add(new Director
+            //            {
+            //                Name = director,
+
+            //            });
+            //        }
+
+            //    }
+            //    foreach (var actor in actorArray)
+            //    {
+            //        var existingActor = actors.FirstOrDefault(x => x.Name == actor);
+            //        if (existingActor == null)
+            //        {
+            //            actors.Add(new Actor
+            //            {
+            //                Name = actor,
+
+            //            });
+            //        }
+            //    }
+
+            //}
+            //var testA = actors.ToList();
+            //var testD = directors.ToList();
+            //var testM = movies.ToList();
+
+            //context.Movies.AddRange(movies);
+            //context.Actors.AddRange(actors);
+            //context.Directors.AddRange(directors);
+            //context.SaveChanges();
+
+            //var moviedb = context.Movies.ToList();
+            //var actordb = context.Actors.ToList();
+            //var directordb = context.Directors.ToList();
+
+            ////if (moviedb.Any() || directordb.Any() || actordb.Any()) return; //checking if database already seeded
+
+            //var movie250 = context.Movies250.ToList();
+
+            //var MA = context.MovieActors.ToList();
+            //var MD = context.MovieDirectors.ToList();
+
+            //if(MA.Any() || MD.Any()) return; //checking if database already seeded
+
+            //var ListMA = new List<MovieActor>();
+            //var ListMD = new List<MovieDirector>();
+
+            //foreach (var movie in movie250)
+            //{
+            //    var directorArray = movie.Director.Split(", ");
+            //    var actorArray = movie.Actors.Split(", ");
+
+
+            //    var actorList = new List<Actor>(); //used inside foreach to link movie with actor (do actor seperate to avoid duplicates)
+            //    var directorList = new List<Director>();
+            //    var movieList = new List<Movie>();
+
+            //    var movieTitle = movie.Title; //for thinking
+
+            //    var movieID = moviedb.FirstOrDefault(x => x.Title == movieTitle);
+
+            //    foreach (var actor in actorArray) //linking movie and actor
+            //    {
+            //        var actorID = actordb.FirstOrDefault(x => x.Name == actor);
+            //        if (actorID != null && movieID != null)
+            //        {
+            //            ListMA.Add(new MovieActor
+            //            {
+            //                MovieId = movieID.Id,
+            //                ActorId = actorID.Id
+            //            });
+            //        }
+
+
+
+            //    }
+            //    foreach (var director in directorArray)
+            //    {
+            //        var directorID = directordb.FirstOrDefault(x => x.Name == director);
+            //        if (directorID != null && movieID != null)
+            //        {
+            //            ListMD.Add(new MovieDirector
+            //            {
+            //                MovieId = movieID.Id,
+            //                DirectorId = directorID.Id
+            //            });
+            //        }
+
+
+            //    }
+
+            //}
+
+            //var check1 = ListMA.ToList();
+            //var check2 = ListMD.ToList();
+
+            //context.MovieActors.AddRange(ListMA);
+            //context.MovieDirectors.AddRange(ListMD);
+            //context.SaveChanges();
+
+            return;
 
 
         }

@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MyMovies.Controllers;
+using MyMovies.Models;
 using MyMovies.ViewModels;
+using System.Linq;
 
 namespace MyMovies
 {
@@ -75,35 +77,105 @@ namespace MyMovies
             const int pageSize = 10;
             return View(await PaginatedList<Movie>.CreateAsync(moviesQuery.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
-            // GET: MoviesController/Details/5
+        // GET: MoviesController/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null) return NotFound();//error404 responce
 
-            var movie250 = await _context.Movies250
-                .FirstOrDefaultAsync(x => x.Id == id);
+            var movies = _context.Movies;
 
-            return View(movie250);
+            var moviesT= _context.Movies
+                .AsEnumerable()
+                .Where(x => x.Id == id)
+                .ToList(); ;
+                //.Include(m => m.MovieActors)
+                //.Include(m => m.MovieDirectors)
+                //.FirstOrDefaultAsync(x => x.Id == id);
+            var actors = _context.Actors;
+            var MAs = _context.MovieActors;
+            var directors = _context.Directors;
+            var MDs = _context.MovieDirectors;
+
+
+            var movieInfo = from movie in movies
+                            join MovieActor in MAs on movie.Id equals MovieActor.MovieId
+                            join actor in actors on MovieActor.ActorId equals actor.Id into aGroup
+                            join MovieDirector in MDs on movie.Id equals MovieDirector.MovieId
+                            join director in directors on MovieDirector.DirectorId equals director.Id into dGroup
+                            where movie.Id == id
+                            select new MovieVM
+                                        {
+                                            Title = movie.Title,
+                                            Year = movie.Year,
+                                            Rated = movie.Rated,
+                                            Release = movie.Release,
+                                            Runtime = movie.Runtime,
+                                            Genre = movie.Genre,
+                                            Writer = movie.Writer,
+                                            Plot = movie.Plot,
+                                            Language = movie.Language,
+                                            Country = movie.Country,
+                                            Awards = movie.Awards,
+                                            Poster = movie.Poster,
+                                            Metascore = movie.Metascore,
+                                            imdbRating = movie.imdbRating,
+                                            imdbVotes = movie.imdbVotes,
+                                            BoxOffice = movie.BoxOffice,
+                                           Actors = aGroup.ToList(),
+                                           Directors = dGroup.ToList(),
+                               };
+
+            var t = movieInfo.ToList();
+
+            //var director = new List<Director>();
+
+
+            return View(t);
+            
         }
+            
+        
 
         // GET: MoviesController/Create
         public ActionResult Create()
-        {  
-            //var actor = _context.Actors.ToList();
-            return View();
-        }
+        {
+            var actor = _context.Actors.ToList();
+            var director = _context.Directors.ToList();
+            var movieInfo = new MovieVM //don't need the rest
+            {
+                Directors = director,
+                Actors = actor,
+            };
 
+            return View(movieInfo);
+        }
         // POST: MoviesController/Create
         [HttpPost]
         [ValidateAntiForgeryToken] //protect protect against fraud
-        public async Task<ActionResult> Create([Bind("Id, Title, Year, Rated, Release, Runtime, Genre, Director, Writer, Actor, Plot, Language, Country, Awards, Poster, Metascore,imdbRating, imdbVotes, Boxoffice")] Movie250 Movie)
+        public async Task<ActionResult> Create([Bind("Id, Title, Year, Rated, Release, Runtime, Genre, Writer, Plot, Language, Country, Awards, Poster, Metascore,imdbRating, imdbVotes, Boxoffice")] Movie NewMovie)
         {
+            var actor = _context.Actors.ToList();
+            var director = _context.Directors.ToList();
+            var MAList = new List<MovieActor>();
+            var MDList = new List<MovieDirector>();
+
             try
             {
                 if (true)//check if entry is valid
                 {
-                    _context.Add(Movie);//add new entry to move
-                    await _context.SaveChangesAsync();//save chagnes in background
+                    NewMovie.Year = (NewMovie.Release).Year;
+                    _context.Movies.Add(NewMovie);//add new entry to move
+                    await _context.SaveChangesAsync();
+
+
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     return RedirectToAction(nameof(Index));
                 }
 
@@ -118,7 +190,7 @@ namespace MyMovies
         }
 
         // GET: MoviesController/Edit/5
-        
+
         //public ActionResult Edit(int id) 
         //{
         //    //var actor = _context.Actors.ToList(); seperate actor from movie db.
@@ -136,7 +208,7 @@ namespace MyMovies
         //}
 
         // POST: MoviesController/Edit/5
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(int id, [Bind("Id, Title, Year, Rated, Release, Runtime, Genre, Director, Writer, Actor, Plot, Language, Country, Awards, Poster, Metascore,imdbRating, imdbVotes, Boxoffice")] Movie250 Movie)
@@ -162,15 +234,15 @@ namespace MyMovies
             return View(Movie);
         }
         // GET: MoviesController/Delete/5
-        
+
         public ActionResult Delete(int id) //need to display information thus need var movie to retreive information
         {
-           // var movie = _context.Movies.FirstOrDefault(x => x.Id == id);
+            // var movie = _context.Movies.FirstOrDefault(x => x.Id == id);
             return View();
         }
 
         // POST: MoviesController/Delete/5
-        
+
         //[HttpPost, ActionName("Delete")]
         //[ValidateAntiForgeryToken]
         //public async Task<ActionResult> DeleteConfirmed(int id)

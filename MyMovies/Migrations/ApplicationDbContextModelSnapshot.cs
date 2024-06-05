@@ -164,9 +164,12 @@ namespace MyMovies.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("varchar(255)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("Actors");
                 });
@@ -181,9 +184,12 @@ namespace MyMovies.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("varchar(255)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("Directors");
                 });
@@ -256,7 +262,7 @@ namespace MyMovies.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Movies", (string)null);
+                    b.ToTable("Movies");
                 });
 
             modelBuilder.Entity("MyMovies.Models.Movie250", b =>
@@ -340,32 +346,48 @@ namespace MyMovies.Migrations
 
             modelBuilder.Entity("MyMovies.Models.MovieActor", b =>
                 {
-                    b.Property<int>("ActorsId")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("MoviesId")
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ActorId")
                         .HasColumnType("int");
 
-                    b.HasKey("ActorsId", "MoviesId");
+                    b.Property<int>("MovieId")
+                        .HasColumnType("int");
 
-                    b.HasIndex("MoviesId");
+                    b.HasKey("Id");
 
-                    b.ToTable("MovieActor");
+                    b.HasIndex("ActorId");
+
+                    b.HasIndex("MovieId");
+
+                    b.ToTable("MovieActors");
                 });
 
             modelBuilder.Entity("MyMovies.Models.MovieDirector", b =>
                 {
-                    b.Property<int>("DirectorsId")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("MoviesId")
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("DirectorId")
                         .HasColumnType("int");
 
-                    b.HasKey("DirectorsId", "MoviesId");
+                    b.Property<int>("MovieId")
+                        .HasColumnType("int");
 
-                    b.HasIndex("MoviesId");
+                    b.HasKey("Id");
 
-                    b.ToTable("MovieDirector");
+                    b.HasIndex("DirectorId");
+
+                    b.HasIndex("MovieId");
+
+                    b.ToTable("MovieDirectors");
                 });
 
             modelBuilder.Entity("MyMovies.Models.User", b =>
@@ -490,32 +512,49 @@ namespace MyMovies.Migrations
 
             modelBuilder.Entity("MyMovies.Models.MovieActor", b =>
                 {
-                    b.HasOne("MyMovies.Models.Actor", null)
-                        .WithMany()
-                        .HasForeignKey("ActorsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("MyMovies.Models.Actor", "Actor")
+                        .WithMany("MovieActors")
+                        .HasForeignKey("ActorId");
 
-                    b.HasOne("MyMovies.Models.Movie", null)
-                        .WithMany()
-                        .HasForeignKey("MoviesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("MyMovies.Models.Movie", "Movie")
+                        .WithMany("MovieActors")
+                        .HasForeignKey("MovieId");
+
+                    b.Navigation("Actor");
+
+                    b.Navigation("Movie");
                 });
 
             modelBuilder.Entity("MyMovies.Models.MovieDirector", b =>
                 {
-                    b.HasOne("MyMovies.Models.Director", null)
-                        .WithMany()
-                        .HasForeignKey("DirectorsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("MyMovies.Models.Director", "Director")
+                        .WithMany("MovieDirectors")
+                        .HasForeignKey("DirectorId");
 
-                    b.HasOne("MyMovies.Models.Movie", null)
-                        .WithMany()
-                        .HasForeignKey("MoviesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("MyMovies.Models.Movie", "Movie")
+                        .WithMany("MovieDirectors")
+                        .HasForeignKey("MovieId");
+
+                    b.Navigation("Director");
+
+                    b.Navigation("Movie");
+                });
+
+            modelBuilder.Entity("MyMovies.Models.Actor", b =>
+                {
+                    b.Navigation("MovieActors");
+                });
+
+            modelBuilder.Entity("MyMovies.Models.Director", b =>
+                {
+                    b.Navigation("MovieDirectors");
+                });
+
+            modelBuilder.Entity("MyMovies.Models.Movie", b =>
+                {
+                    b.Navigation("MovieActors");
+
+                    b.Navigation("MovieDirectors");
                 });
 #pragma warning restore 612, 618
         }
