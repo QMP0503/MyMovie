@@ -35,25 +35,30 @@ namespace MyMovies.Data
                 .HasMany(m => m.MovieActors)
                 .WithOne(ma => ma.Movie)
                 .HasForeignKey(ma => ma.MovieId)
-                .IsRequired(false);
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.Cascade);
+            
 
             modelBuilder.Entity<Movie>() //movie director
                 .HasMany(m => m.MovieDirectors)
                 .WithOne(md => md.Movie)
                 .HasForeignKey(md => md.MovieId)
-                .IsRequired(false);
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Director>()
                 .HasMany(d => d.MovieDirectors)
                 .WithOne(m => m.Director)
                 .HasForeignKey(m => m.DirectorId)
-                .IsRequired(false);
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Actor>()
                 .HasMany(a => a.MovieActors)
                 .WithOne(m => m.Actor)
                 .HasForeignKey(m => m.ActorId)
-                .IsRequired(false);
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.Cascade);
               
 
         }

@@ -1,4 +1,4 @@
-﻿@* @model MyMovies.ViewModels.MovieVM;
+﻿@model MyMovies.ViewModels.MovieVM;
 
 @using MyMovies.Models;
 
@@ -12,45 +12,113 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Edit" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="Title" class="control-label"></label>
                 <input asp-for="Title" class="form-control" />
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ReleaseDate" class="control-label"></label>
-                <input asp-for="ReleaseDate" class="form-control" />
-                <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+                <label asp-for="Release" class="control-label"></label>
+                <input asp-for="Release" class="form-control" />
+                <span asp-validation-for="Release" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="Genre" class="control-label"></label>
                 <input asp-for="Genre" class="form-control" />
                 <span asp-validation-for="Genre" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Rating" class="control-label"></label>
-                <input asp-for="Rating" class="form-control" />
-                <span asp-validation-for="Rating" class="text-danger"></span>
+                <label asp-for="Rated" class="control-label"></label>
+                <input asp-for="Rated" class="form-control" />
+                <span asp-validation-for="Rated" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <pre>
-                </pre>
-                <label class="control-label">Selection Actors Involed:</label>
-                <select name="Actors" id="ActorSelect">
-                   
-                   @*  //   <option value="">@actors.FirstName</option>
-                   } 
-                    
-                    
+                <label asp-for="Actors" class="control-label"></label>
+                <select id="Actors" name="SelectedActors" class="form-control" multiple="multiple">
+                    @foreach (var actor in Model.Actors)
+                    {
+                        <option value="@actor.Id">@actor.Name</option>
+                    }
                 </select>
-                <pre>
-                </pre>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <label asp-for="Directors" class="control-label"></label>
+                @try{
+                    <select asp-for="SelectedDirectors" class="form-control" multiple="multiple">
+                        @foreach (var director in Model.Directors)
+                        {
+                            <option value="@director.Id">@director.Name</option>
+                        }
+                    </select>
+                }catch (Exception)
+                {
+                    s
+                }
+
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Runtime" class="control-label"></label>
+                <input asp-for="Runtime" class="form-control" />
+                <span asp-validation-for="Runtime" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Writer" class="control-label"></label>
+                <input asp-for="Writer" class="form-control" />
+                <span asp-validation-for="Writer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Plot" class="control-label"></label>
+                <input asp-for="Plot" class="form-control" />
+                <span asp-validation-for="Plot" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Language" class="control-label"></label>
+                <input asp-for="Language" class="form-control" />
+                <span asp-validation-for="Language" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Country" class="control-label"></label>
+                <input asp-for="Country" class="form-control" />
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Awards" class="control-label"></label>
+                <input asp-for="Awards" class="form-control" />
+                <span asp-validation-for="Awards" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Poster" class="control-label"></label>
+                <input asp-for="Poster" class="form-control" />
+                <span asp-validation-for="Poster" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Metascore" class="control-label"></label>
+                <input asp-for="Metascore" class="form-control" />
+                <span asp-validation-for="Metascore" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="imdbRating" class="control-label"></label>
+                <input asp-for="imdbRating" class="form-control" />
+                <span asp-validation-for="imdbRating" class="text-danger"></span>
+            </div><div class="form-group">
+                <label asp-for="imdbVotes" class="control-label"></label>
+                <input asp-for="imdbVotes" class="form-control" />
+                <span asp-validation-for="imdbVotes" class="text-danger"></span>
+            </div><div class="form-group">
+                <label asp-for="BoxOffice" class="control-label"></label>
+                <input asp-for="BoxOffice" class="form-control" />
+                <span asp-validation-for="BoxOffice" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Edit" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -60,4 +128,3 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
- *@

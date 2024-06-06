@@ -80,10 +80,6 @@
               "target": "Package",
               "version": "[8.0.2, )"
             },
-            "bootstrap": {
-              "target": "Package",
-              "version": "[5.3.3, )"
-            },
             "jQuery": {
               "target": "Package",
               "version": "[3.7.1, )"

@@ -1,12 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "qX+qF/MK/GfKywVqF9npy30Tx1EPcnc3PlM5g3FlOQuK5eqFwC9d+aHZRpltJxBMLksMDkU6UXBdbPCcp85GMw==",
+  "dgSpecHash": "KEECnbpagO0Ll/xSwJTavkwI676r4rYSIs6TiStUFXLSBe3tptMqCjSeJYK6/nI5EEoBepOaRaYTPQZaSJpPIg==",
   "success": true,
   "projectFilePath": "C:\\Users\\intern.pmquang1\\C#\\MyMovies\\MyMovies\\MyMovies.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\intern.pmquang1\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\intern.pmquang1\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
-    "C:\\Users\\intern.pmquang1\\.nuget\\packages\\bootstrap\\5.3.3\\bootstrap.5.3.3.nupkg.sha512",
     "C:\\Users\\intern.pmquang1\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\intern.pmquang1\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\intern.pmquang1\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",

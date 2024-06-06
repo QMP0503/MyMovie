@@ -514,11 +514,13 @@ namespace MyMovies.Migrations
                 {
                     b.HasOne("MyMovies.Models.Actor", "Actor")
                         .WithMany("MovieActors")
-                        .HasForeignKey("ActorId");
+                        .HasForeignKey("ActorId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("MyMovies.Models.Movie", "Movie")
                         .WithMany("MovieActors")
-                        .HasForeignKey("MovieId");
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Actor");
 
@@ -529,11 +531,13 @@ namespace MyMovies.Migrations
                 {
                     b.HasOne("MyMovies.Models.Director", "Director")
                         .WithMany("MovieDirectors")
-                        .HasForeignKey("DirectorId");
+                        .HasForeignKey("DirectorId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("MyMovies.Models.Movie", "Movie")
                         .WithMany("MovieDirectors")
-                        .HasForeignKey("MovieId");
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Director");
 

@@ -1,8 +1,99 @@
-﻿@* @model MyMovies.Models.Movie
+﻿@model MyMovies.ViewModels.MovieVM
 
 @{
     ViewData["Title"] = "Delete";
 }
+
+
+
+@{
+    var actorList = new List<string>();
+    foreach (var actor in Model.Actors)
+    {
+        actorList.Add(actor.Name);
+    }
+
+    var directorList = new List<string>();
+    foreach (var director in Model.Directors)
+    {
+        directorList.Add(director.Name);
+    }
+
+}
+
+
+<table class="table">
+    <tbody>
+        <tr>
+            <td>
+                <img class="img-thumbnail align-content-center img-responsive" display="block" src=@Model.Poster />
+            </td>
+            <td>
+                <div class="col-sm-8 align-items-center">
+                    <h3>@Html.DisplayFor(model => model.Title)</h3>
+                    <p>
+                        <strong>Release Date:</strong> @Html.DisplayFor(model => model.Release)
+                    </p>
+                    <p>
+                        <strong>Genre:</strong> @Html.DisplayFor(model => model.Genre)
+                    </p>
+                    <p>
+                        <strong>Imdb Rating:</strong> @Html.DisplayFor(model => model.imdbRating)
+                    </p>
+                    <p>
+                        <strong>Director:</strong> @if (Model.Directors == null)
+                        {
+                            <Text>N/A</Text>
+                        }
+                        @string.Join(", ", directorList)
+                    </p>
+                    <p>
+                        <strong>Award:</strong> @Html.DisplayFor(model => model.Awards)
+                    </p>
+                    <p>
+                        <strong>Plot:</strong> @Html.DisplayFor(model => model.Plot)
+                    </p>
+                    <p>
+                        <strong>Actors:</strong> @if (Model.Actors == null)
+                        {
+                            <Text>N/A</Text>
+                        }
+                        @string.Join(", ", actorList)
+                    </p>
+                    <p>
+                        <strong>Writors</strong> @Html.DisplayFor(model => model.Writer)
+                    </p>
+                    <p>
+                        <strong>Language:</strong> @Html.DisplayFor(model => model.Language)
+                    </p>
+                    <p>
+                        <strong>Country:</strong> @Html.DisplayFor(model => model.Country)
+                    </p>
+                    <p>
+                        <strong>BoxOffice:</strong> @if (Model.BoxOffice == 0)
+                        {
+                            <text>N/A</text>
+                        }
+                        else
+                        {
+                            <text>$</text> @Html.DisplayFor(model => model.BoxOffice)
+                        }
+                    </p>
+                    <div>
+                        <form asp-action="Delete">
+                            <input type="hidden" asp-for="Id" />
+                            <input type="submit" value="Delete" class="btn btn-danger" /> |
+                            <a asp-action="Index">Back to List</a>
+                        </form>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+@* @model MyMovies.Models.Movie
+
 
 <h1>Delete</h1>
 <p class="text-danger">@ViewData["ErrorMessage"]</p>
