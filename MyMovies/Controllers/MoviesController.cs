@@ -146,7 +146,7 @@ namespace MyMovies
         [ValidateAntiForgeryToken] //protect protect against fraud
         public async Task<ActionResult> Create([Bind("Id, Title, Year, Rated, Release, Runtime, Genre, Writer, Plot, Language, Country, Awards, Poster, Metascore,imdbRating, imdbVotes, Boxoffice, Directors, Actors, SelectedActors, SelectedDirectors")] MovieVM NewMovieVM)
         {
-            var LastMovieId = _context.Movies.ToList().Last().Id;
+            var LastMovieId = _context.Movies.ToList().Max(x => x.Id);
             var MAList = new List<MovieActor>();
             var MDList = new List<MovieDirector>();
 
@@ -364,16 +364,10 @@ namespace MyMovies
         {
             try
             {
-                var test = id;
-                var Movie = _context.Movies;
-
-                var MAs = _context.MovieActors;
-
-                var MDs = _context.MovieDirectors;
                 var movieDel = await _context.Movies
-            .Include(m => m.MovieDirectors)
-            .Include(m => m.MovieActors)
-            .FirstOrDefaultAsync(m => m.Id == id);
+                                .Include(m => m.MovieDirectors)
+                                .Include(m => m.MovieActors)
+                                .FirstOrDefaultAsync(m => m.Id == id);
 
 
                 _context.RemoveRange(movieDel);

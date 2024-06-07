@@ -1,0 +1,32 @@
+﻿@model MyMovies.ViewModels.ActorVM
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>More about the actor</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-4">
+            <p>
+            <strong>Name:</strong> @Html.DisplayFor(model => model.Name)
+            </p>
+        </dt>
+        <dt class = "col-sm-8">
+            <strong>Movies:</strong>
+            @foreach(var movie in Model.Movies.ToList())
+            {
+                <p>
+                @movie.Title
+                </p>
+            }
+        </dt>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

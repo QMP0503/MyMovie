@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using MyMovies.ViewModels;
 namespace MyMovies.Data
 {
     public class ApplicationDbContext:IdentityDbContext<User>
@@ -62,5 +64,6 @@ namespace MyMovies.Data
               
 
         }
+    
     }
 }

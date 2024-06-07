@@ -6,6 +6,7 @@
     ViewData["Title"] = "Index";
 }
 
+
 <h1>Index</h1>
 
 <p>
@@ -44,14 +45,14 @@
                 </a>
             </td>
             <td>
-         @*        @foreach(var movie in item.Movies)
+                 @foreach(var movie in item.MovieActors.ToList().Select(x => x.Movie).ToList())
                     {
-                            <p>
-                            <a asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id">
-                                @Html.DisplayFor(modelItem => movie.Title) 
-                            </a>
-                            </p>
-                    } *@
+                        <p>
+                        <a asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id">
+                            @Html.DisplayFor(modelItem => movie.Title) 
+                        </a>
+                        </p>
+                    }
             </td>
             <td>
                 @if (User.IsInRole("Admin")) //switch to role base when finished with CRUD method functions

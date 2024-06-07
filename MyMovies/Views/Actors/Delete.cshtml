@@ -1,0 +1,35 @@
+﻿@model MyMovies.ViewModels.ActorVM
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete?</h1>
+
+<div>
+    <h4>Do you want to remove this actor?</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-4">
+            <p>
+                <strong>Name:</strong> @Html.DisplayFor(model => model.Name)
+            </p>
+        </dt>
+        <dt class="col-sm-8">
+            <strong>Movies:</strong>
+            @foreach (var movie in Model.Movies.ToList())
+            {
+                <p>
+                    @movie.Title
+                </p>
+            }
+        </dt>
+    </dl>
+</div>
+<div>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
