@@ -47,25 +47,25 @@ using (var scope = app.Services.CreateScope())
 
     SeedData.Initialize(services);
 }
-using(var scope = app.Services.CreateScope())
-{
-    string Email = "admin@admin.com";
-    var password = "1234";
+//using(var scope = app.Services.CreateScope())
+//{
+//    string Email = "admin@admin.com";
+//    var password = "1234";
 
 
-    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
-    if (await userManager.FindByEmailAsync(Email) == null)
-    {
-        var adminUser = new User();
-        adminUser.Name = "Admin";
-        adminUser.UserName = Email;
-        adminUser.Email = Email;
+//    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+//    if (await userManager.FindByEmailAsync(Email) == null)
+//    {
+//        var adminUser = new User();
+//        adminUser.Name = "Admin";
+//        adminUser.UserName = Email;
+//        adminUser.Email = Email;
 
-        await userManager.CreateAsync(adminUser, password);
-        await userManager.AddToRoleAsync(adminUser, "Admin");
-    }
+//        await userManager.CreateAsync(adminUser, password);
+//        await userManager.AddToRoleAsync(adminUser, "Admin");
+//    }
 
-}
+//}
 
 
 

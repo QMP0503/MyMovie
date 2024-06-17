@@ -6,7 +6,7 @@ using MyMovies.Models;
 using MyMovies.ViewModels;
 using System.IO;
 using System.Linq;
-using System.Text.Json.Serialization;
+using System.Text.Json.Serialization;  //no lazy loading in this project
 using System.Text.RegularExpressions;
 
 namespace MyMovies
@@ -92,7 +92,7 @@ namespace MyMovies
                 .ThenInclude(md => md.Director)
             .Include(m => m.MovieActors)
                 .ThenInclude(ma => ma.Actor)
-            .FirstOrDefaultAsync(m => m.Id == id);
+            .FirstOrDefaultAsync(m => m.Id == id); //explicit loading
 
             if (movie == null)
             {
@@ -131,7 +131,7 @@ namespace MyMovies
         // GET: MoviesController/Create
         public ActionResult Create()
         {
-            var actor = _context.Actors.ToList();
+            var actor = _context.Actors.ToList(); //eager loading (calling all data from the database up front)
             var director = _context.Directors.ToList();
             var movieInfo = new MovieVM //don't need the rest
             {

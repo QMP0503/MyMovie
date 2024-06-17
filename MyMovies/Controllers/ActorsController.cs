@@ -81,7 +81,7 @@ namespace MyMovies.Controllers
         // GET: MoviesController/Create
         public ActionResult Create()
         {
-            var movies = _context.Movies.ToList();
+            var movies = _context.Movies.ToList(); //eager loading (sending data to html so this is needed)
             var actorInfo = new ActorVM //don't need the rest
             {
                 Movies = movies
